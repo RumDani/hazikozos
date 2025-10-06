@@ -29,6 +29,8 @@ component:
 - {id: EFM32GG990F1024}
 - {id: brd2200a}
 - {id: device_init}
+- {id: emlib_lcd}
+- {id: memlcd_custom}
 - {id: sl_system}
 define:
 - {name: DEBUG_EFM}

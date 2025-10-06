@@ -64,6 +64,29 @@
           </folder>
         </folder>
       </folder>
+      <folder name="common">
+        <folder name="inc">
+          <file name="sl_atomic.h" linked="false" uri="studio:/sdk/platform/common/inc/sl_atomic.h"/>
+          <file name="sl_enum.h" linked="false" uri="studio:/sdk/platform/common/inc/sl_enum.h"/>
+          <file name="sl_assert.h" linked="false" uri="studio:/sdk/platform/common/inc/sl_assert.h"/>
+          <file name="sl_common.h" linked="false" uri="studio:/sdk/platform/common/inc/sl_common.h"/>
+          <file name="sl_status.h" linked="false" uri="studio:/sdk/platform/common/inc/sl_status.h"/>
+        </folder>
+        <folder name="src">
+          <file name="sl_assert.c" linked="false" uri="studio:/sdk/platform/common/src/sl_assert.c"/>
+          <file name="sl_syscalls.c" linked="false" uri="studio:/sdk/platform/common/src/sl_syscalls.c"/>
+        </folder>
+        <folder name="toolchain">
+          <folder name="src">
+            <file name="sl_memory.c" linked="false" uri="studio:/sdk/platform/common/toolchain/src/sl_memory.c"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_memory_region.h" linked="false" uri="studio:/sdk/platform/common/toolchain/inc/sl_memory_region.h"/>
+            <file name="sl_memory.h" linked="false" uri="studio:/sdk/platform/common/toolchain/inc/sl_memory.h"/>
+            <file name="sl_gcc_preinclude.h" linked="false" uri="studio:/sdk/platform/common/toolchain/inc/sl_gcc_preinclude.h"/>
+          </folder>
+        </folder>
+      </folder>
       <folder name="CMSIS">
         <folder name="Core">
           <folder name="Include">
@@ -102,6 +125,26 @@
             <file name="sl_system_process_action.h" linked="false" uri="studio:/sdk/platform/service/system/inc/sl_system_process_action.h"/>
           </folder>
         </folder>
+        <folder name="sleeptimer">
+          <folder name="src">
+            <file name="sl_sleeptimer.c" linked="false" uri="studio:/sdk/platform/service/sleeptimer/src/sl_sleeptimer.c"/>
+            <file name="sl_sleeptimer_hal_rtc.c" linked="false" uri="studio:/sdk/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.c"/>
+            <file name="sli_sleeptimer_hal.h" linked="false" uri="studio:/sdk/platform/service/sleeptimer/src/sli_sleeptimer_hal.h"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_sleeptimer.h" linked="false" uri="studio:/sdk/platform/service/sleeptimer/inc/sl_sleeptimer.h"/>
+            <file name="sli_sleeptimer.h" linked="false" uri="studio:/sdk/platform/service/sleeptimer/inc/sli_sleeptimer.h"/>
+          </folder>
+        </folder>
+        <folder name="udelay">
+          <folder name="src">
+            <file name="sl_udelay.c" linked="false" uri="studio:/sdk/platform/service/udelay/src/sl_udelay.c"/>
+            <file name="sl_udelay_armv6m_gcc.S" linked="false" uri="studio:/sdk/platform/service/udelay/src/sl_udelay_armv6m_gcc.S"/>
+          </folder>
+          <folder name="inc">
+            <file name="sl_udelay.h" linked="false" uri="studio:/sdk/platform/service/udelay/inc/sl_udelay.h"/>
+          </folder>
+        </folder>
       </folder>
       <folder name="emlib">
         <folder name="inc">
@@ -118,40 +161,24 @@
           <file name="em_core_generic.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_core_generic.h"/>
           <file name="em_emu.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_emu.h"/>
           <file name="em_gpio.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_gpio.h"/>
+          <file name="em_lcd.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_lcd.h"/>
           <file name="em_msc.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_msc.h"/>
           <file name="em_msc_compat.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_msc_compat.h"/>
+          <file name="em_rtc.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_rtc.h"/>
           <file name="em_system.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_system.h"/>
           <file name="em_system_generic.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_system_generic.h"/>
+          <file name="em_timer.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_timer.h"/>
         </folder>
         <folder name="src">
           <file name="em_cmu.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_cmu.c"/>
           <file name="em_core.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_core.c"/>
           <file name="em_emu.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_emu.c"/>
           <file name="em_gpio.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_gpio.c"/>
+          <file name="em_lcd.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_lcd.c"/>
           <file name="em_msc.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_msc.c"/>
+          <file name="em_rtc.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_rtc.c"/>
           <file name="em_system.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_system.c"/>
-        </folder>
-      </folder>
-      <folder name="common">
-        <folder name="inc">
-          <file name="sl_enum.h" linked="false" uri="studio:/sdk/platform/common/inc/sl_enum.h"/>
-          <file name="sl_assert.h" linked="false" uri="studio:/sdk/platform/common/inc/sl_assert.h"/>
-          <file name="sl_common.h" linked="false" uri="studio:/sdk/platform/common/inc/sl_common.h"/>
-          <file name="sl_status.h" linked="false" uri="studio:/sdk/platform/common/inc/sl_status.h"/>
-        </folder>
-        <folder name="src">
-          <file name="sl_assert.c" linked="false" uri="studio:/sdk/platform/common/src/sl_assert.c"/>
-          <file name="sl_syscalls.c" linked="false" uri="studio:/sdk/platform/common/src/sl_syscalls.c"/>
-        </folder>
-        <folder name="toolchain">
-          <folder name="src">
-            <file name="sl_memory.c" linked="false" uri="studio:/sdk/platform/common/toolchain/src/sl_memory.c"/>
-          </folder>
-          <folder name="inc">
-            <file name="sl_memory_region.h" linked="false" uri="studio:/sdk/platform/common/toolchain/inc/sl_memory_region.h"/>
-            <file name="sl_memory.h" linked="false" uri="studio:/sdk/platform/common/toolchain/inc/sl_memory.h"/>
-            <file name="sl_gcc_preinclude.h" linked="false" uri="studio:/sdk/platform/common/toolchain/inc/sl_gcc_preinclude.h"/>
-          </folder>
+          <file name="em_timer.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_timer.c"/>
         </folder>
       </folder>
     </folder>
@@ -166,27 +193,47 @@
           <file name="sl_board_init.h" linked="false" uri="studio:/sdk/hardware/board/inc/sl_board_init.h"/>
         </folder>
       </folder>
+      <folder name="driver">
+        <folder name="memlcd">
+          <folder name="src">
+            <folder name="memlcd_custom">
+              <file name="sl_memlcd_custom.c" linked="false" uri="studio:/sdk/hardware/driver/memlcd/src/memlcd_custom/sl_memlcd_custom.c"/>
+            </folder>
+            <folder name="memlcd_display_custom">
+              <file name="sl_memlcd_display.h" linked="false" uri="studio:/sdk/hardware/driver/memlcd/src/memlcd_display_custom/sl_memlcd_display.h"/>
+            </folder>
+          </folder>
+          <folder name="inc">
+            <file name="sl_memlcd.h" linked="false" uri="studio:/sdk/hardware/driver/memlcd/inc/sl_memlcd.h"/>
+          </folder>
+        </folder>
+      </folder>
     </folder>
   </folder>
-  <file name="app.c" linked="false" uri="studio:/sdk/app/common/example/empty/app.c"/>
-  <file name="main.c" linked="false" uri="studio:/sdk/app/common/example/empty/main.c"/>
-  <file name="app.h" linked="false" uri="studio:/sdk/app/common/example/empty/app.h"/>
-  <file name="readme.md" linked="false" uri="studio:/sdk/app/common/example/empty/readme.md"/>
+  <file name="app.c" linked="false" uri="studio:/project/app.c"/>
+  <file name="main.c" linked="false" uri="studio:/project/main.c"/>
+  <file name="app.h" linked="false" uri="studio:/project/app.h"/>
+  <file name="readme.md" linked="false" uri="studio:/project/readme.md"/>
   <includePath uri="studio:/project/"/>
   <includePath uri="studio:/project/gecko_sdk_4.4.6/platform/Device/SiliconLabs/EFM32GG/Include"/>
+  <includePath uri="studio:/project/gecko_sdk_4.4.6/platform/common/inc"/>
   <includePath uri="studio:/project/gecko_sdk_4.4.6/hardware/board/inc"/>
   <includePath uri="studio:/project/gecko_sdk_4.4.6/platform/CMSIS/Core/Include"/>
   <includePath uri="studio:/project/gecko_sdk_4.4.6/platform/service/device_init/inc"/>
   <includePath uri="studio:/project/gecko_sdk_4.4.6/platform/emlib/inc"/>
-  <includePath uri="studio:/project/gecko_sdk_4.4.6/platform/common/inc"/>
+  <includePath uri="studio:/project/gecko_sdk_4.4.6/hardware/driver/memlcd/inc"/>
+  <includePath uri="studio:/project/gecko_sdk_4.4.6/hardware/driver/memlcd/src/memlcd_display_custom"/>
   <includePath uri="studio:/project/gecko_sdk_4.4.6/platform/common/toolchain/inc"/>
   <includePath uri="studio:/project/gecko_sdk_4.4.6/platform/service/system/inc"/>
+  <includePath uri="studio:/project/gecko_sdk_4.4.6/platform/service/sleeptimer/inc"/>
+  <includePath uri="studio:/project/gecko_sdk_4.4.6/platform/service/udelay/inc"/>
   <macroDefinition name="DEBUG_EFM"/>
   <macroDefinition name="EFM32GG990F1024"/>
   <macroDefinition name="HFXO_FREQ" value="48000000"/>
   <macroDefinition name="SL_BOARD_NAME" value="&quot;BRD2200A&quot;"/>
   <macroDefinition name="SL_BOARD_REV" value="&quot;B05&quot;"/>
   <macroDefinition name="SL_COMPONENT_CATALOG_PRESENT"/>
+  <macroDefinition name="MEMLCD_CUSTOM_DRIVER" value="1"/>
   <libraryFile name="gcc"/>
   <libraryFile name="c"/>
   <libraryFile name="m"/>
