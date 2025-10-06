@@ -27,4 +27,6 @@ gecko_sdk_4.4.6/platform/service/device_init/src \
 gecko_sdk_4.4.6/platform/service/sleeptimer/src \
 gecko_sdk_4.4.6/platform/service/system/src \
 gecko_sdk_4.4.6/platform/service/udelay/src \
+lcdscreen \
+touchslider \
 

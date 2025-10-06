@@ -29,7 +29,10 @@ component:
 - {id: EFM32GG990F1024}
 - {id: brd2200a}
 - {id: device_init}
+- {id: emlib_acmp}
 - {id: emlib_lcd}
+- {id: emlib_lesense}
+- {id: emlib_vcmp}
 - {id: memlcd_custom}
 - {id: sl_system}
 define:

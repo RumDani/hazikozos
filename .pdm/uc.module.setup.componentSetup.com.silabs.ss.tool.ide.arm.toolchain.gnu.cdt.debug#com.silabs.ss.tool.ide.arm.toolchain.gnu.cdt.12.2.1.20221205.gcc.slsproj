@@ -147,7 +147,22 @@
         </folder>
       </folder>
       <folder name="emlib">
+        <folder name="src">
+          <file name="em_acmp.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_acmp.c"/>
+          <file name="em_cmu.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_cmu.c"/>
+          <file name="em_core.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_core.c"/>
+          <file name="em_emu.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_emu.c"/>
+          <file name="em_gpio.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_gpio.c"/>
+          <file name="em_lcd.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_lcd.c"/>
+          <file name="em_lesense.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_lesense.c"/>
+          <file name="em_msc.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_msc.c"/>
+          <file name="em_rtc.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_rtc.c"/>
+          <file name="em_system.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_system.c"/>
+          <file name="em_timer.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_timer.c"/>
+          <file name="em_vcmp.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_vcmp.c"/>
+        </folder>
         <folder name="inc">
+          <file name="em_acmp.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_acmp.h"/>
           <file name="em_chip.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_chip.h"/>
           <file name="em_cmu.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_cmu.h"/>
           <file name="em_cmu_compat.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_cmu_compat.h"/>
@@ -162,23 +177,14 @@
           <file name="em_emu.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_emu.h"/>
           <file name="em_gpio.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_gpio.h"/>
           <file name="em_lcd.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_lcd.h"/>
+          <file name="em_lesense.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_lesense.h"/>
           <file name="em_msc.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_msc.h"/>
           <file name="em_msc_compat.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_msc_compat.h"/>
           <file name="em_rtc.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_rtc.h"/>
           <file name="em_system.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_system.h"/>
           <file name="em_system_generic.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_system_generic.h"/>
           <file name="em_timer.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_timer.h"/>
-        </folder>
-        <folder name="src">
-          <file name="em_cmu.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_cmu.c"/>
-          <file name="em_core.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_core.c"/>
-          <file name="em_emu.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_emu.c"/>
-          <file name="em_gpio.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_gpio.c"/>
-          <file name="em_lcd.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_lcd.c"/>
-          <file name="em_msc.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_msc.c"/>
-          <file name="em_rtc.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_rtc.c"/>
-          <file name="em_system.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_system.c"/>
-          <file name="em_timer.c" linked="false" uri="studio:/sdk/platform/emlib/src/em_timer.c"/>
+          <file name="em_vcmp.h" linked="false" uri="studio:/sdk/platform/emlib/inc/em_vcmp.h"/>
         </folder>
       </folder>
     </folder>

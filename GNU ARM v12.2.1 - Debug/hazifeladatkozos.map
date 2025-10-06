@@ -9,7 +9,7 @@ c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7
 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
                               c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_ldivmod.o) (__aeabi_ldiv0)
 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-abs.o)
-                              ./segmentlcd.o (abs)
+                              ./lcdscreen/segmentlcd.o (abs)
 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-exit.o)
                               c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crt0.o (exit)
 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-findfp.o)
@@ -37,7 +37,7 @@ c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7
 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-lock.o)
                               c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-findfp.o) (__retarget_lock_init_recursive)
 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-strlen.o)
-                              ./segmentlcd.o (strlen)
+                              ./lcdscreen/segmentlcd.o (strlen)
 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-freer.o)
                               c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-reent.o) (_free_r)
 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-mallocr.o)
@@ -70,95 +70,6 @@ Discarded input sections
  .text          0x00000000        0x0 ./main.o
  .data          0x00000000        0x0 ./main.o
  .bss           0x00000000        0x0 ./main.o
- .text          0x00000000        0x0 ./segmentlcd.o
- .data          0x00000000        0x0 ./segmentlcd.o
- .bss           0x00000000        0x0 ./segmentlcd.o
- .text.LCD_SyncBusyDelay
-                0x00000000       0x10 ./segmentlcd.o
- .text.SegmentLCD_AllOff
-                0x00000000       0xac ./segmentlcd.o
- .text.SegmentLCD_AllOn
-                0x00000000       0xcc ./segmentlcd.o
- .text.SegmentLCD_AlphaNumberOff
-                0x00000000       0xa8 ./segmentlcd.o
- .text.SegmentLCD_Block
-                0x00000000       0xb4 ./segmentlcd.o
- .text.SegmentLCD_Disable
-                0x00000000       0x30 ./segmentlcd.o
- .text.SegmentLCD_Init
-                0x00000000       0xac ./segmentlcd.o
- .text.SegmentLCD_NumberOff
-                0x00000000       0x4c ./segmentlcd.o
- .text.SegmentLCD_Number
-                0x00000000       0xc4 ./segmentlcd.o
- .text.SegmentLCD_Symbol
-                0x00000000       0x28 ./segmentlcd.o
- .text.SegmentLCD_UnsignedHex
-                0x00000000       0x7c ./segmentlcd.o
- .text.SegmentLCD_Write
-                0x00000000       0x7c ./segmentlcd.o
- .text.SegmentLCD_LowerHex
-                0x00000000       0x42 ./segmentlcd.o
- .rodata.SegmentLCD_LowerNumber.str1.1
-                0x00000000        0x8 ./segmentlcd.o
- .text.SegmentLCD_LowerNumber
-                0x00000000       0x88 ./segmentlcd.o
- .text.SegmentLCD_segCnt
-                0x00000000       0xb4 ./segmentlcd.o
- .text.SegmentLCD_ARing
-                0x00000000       0x1c ./segmentlcd.o
- .text.SegmentLCD_Battery
-                0x00000000       0x28 ./segmentlcd.o
- .text.SegmentLCD_EnergyMode
-                0x00000000       0x1c ./segmentlcd.o
- .rodata.CSWTCH.37
-                0x00000000        0xf ./segmentlcd.o
- .rodata.CSWTCH.36
-                0x00000000        0xf ./segmentlcd.o
- .rodata.lcdInit
-                0x00000000       0x14 ./segmentlcd.o
- .rodata.Blocks
-                0x00000000        0x8 ./segmentlcd.o
- .rodata.Segment_Numbers
-                0x00000000       0x22 ./segmentlcd.o
- .rodata.Segment_Alphabet
-                0x00000000       0xb8 ./segmentlcd.o
- .rodata.EFM_Display
-                0x00000000      0x1fe ./segmentlcd.o
- .rodata        0x00000000       0x40 ./segmentlcd.o
- .debug_info    0x00000000     0x2151 ./segmentlcd.o
- .debug_abbrev  0x00000000      0x36f ./segmentlcd.o
- .debug_loc     0x00000000     0x15a5 ./segmentlcd.o
- .debug_aranges
-                0x00000000       0xa8 ./segmentlcd.o
- .debug_ranges  0x00000000      0x120 ./segmentlcd.o
- .debug_line    0x00000000      0xc0a ./segmentlcd.o
- .debug_str     0x00000000      0xf35 ./segmentlcd.o
- .comment       0x00000000       0x46 ./segmentlcd.o
- .debug_frame   0x00000000      0x224 ./segmentlcd.o
- .ARM.attributes
-                0x00000000       0x2d ./segmentlcd.o
- .text          0x00000000        0x0 ./segmentlcd_individual.o
- .data          0x00000000        0x0 ./segmentlcd_individual.o
- .bss           0x00000000        0x0 ./segmentlcd_individual.o
- .text.SegmentLCD_UpperSegments
-                0x00000000       0x58 ./segmentlcd_individual.o
- .text.SegmentLCD_LowerSegments
-                0x00000000       0x58 ./segmentlcd_individual.o
- .data.Text     0x00000000       0xc4 ./segmentlcd_individual.o
- .data.Number   0x00000000       0x38 ./segmentlcd_individual.o
- .debug_info    0x00000000      0x7b5 ./segmentlcd_individual.o
- .debug_abbrev  0x00000000      0x1cb ./segmentlcd_individual.o
- .debug_loc     0x00000000      0x232 ./segmentlcd_individual.o
- .debug_aranges
-                0x00000000       0x28 ./segmentlcd_individual.o
- .debug_ranges  0x00000000       0x48 ./segmentlcd_individual.o
- .debug_line    0x00000000      0x3dc ./segmentlcd_individual.o
- .debug_str     0x00000000      0x3bc ./segmentlcd_individual.o
- .comment       0x00000000       0x46 ./segmentlcd_individual.o
- .debug_frame   0x00000000       0x50 ./segmentlcd_individual.o
- .ARM.attributes
-                0x00000000       0x2d ./segmentlcd_individual.o
  .text          0x00000000        0x0 ./autogen/sl_board_default_init.o
  .data          0x00000000        0x0 ./autogen/sl_board_default_init.o
  .bss           0x00000000        0x0 ./autogen/sl_board_default_init.o
@@ -230,6 +141,41 @@ Discarded input sections
  .text._sbrk    0x00000000       0x20 ./gecko_sdk_4.4.6/platform/common/toolchain/src/sl_memory.o
  .data.heap_end.0
                 0x00000000        0x4 ./gecko_sdk_4.4.6/platform/common/toolchain/src/sl_memory.o
+ .text          0x00000000        0x0 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .data          0x00000000        0x0 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .bss           0x00000000        0x0 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .rodata.ACMP_CapsenseInit.str1.1
+                0x00000000       0x30 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .text.ACMP_CapsenseInit
+                0x00000000       0x88 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .text.ACMP_CapsenseChannelSet
+                0x00000000       0x4c ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .text.ACMP_Disable
+                0x00000000       0x30 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .text.ACMP_Enable
+                0x00000000       0x30 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .text.ACMP_Reset
+                0x00000000       0x3c ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .rodata.ACMP_GPIOSetup.str1.1
+                0x00000000       0x52 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .text.ACMP_GPIOSetup
+                0x00000000       0x88 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .text.ACMP_ChannelSet
+                0x00000000       0x54 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .text.ACMP_Init
+                0x00000000       0x90 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .debug_info    0x00000000      0xa1f ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .debug_abbrev  0x00000000      0x296 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .debug_loc     0x00000000      0x616 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .debug_aranges
+                0x00000000       0x58 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .debug_ranges  0x00000000       0xa0 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .debug_line    0x00000000      0x693 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .debug_str     0x00000000      0x67b ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .comment       0x00000000       0x46 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .debug_frame   0x00000000      0x104 ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
+ .ARM.attributes
+                0x00000000       0x2d ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
  .text          0x00000000        0x0 ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
  .data          0x00000000        0x0 ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
  .bss           0x00000000        0x0 ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
@@ -483,6 +429,69 @@ Discarded input sections
  .debug_frame   0x00000000      0x194 ./gecko_sdk_4.4.6/platform/emlib/src/em_lcd.o
  .ARM.attributes
                 0x00000000       0x2d ./gecko_sdk_4.4.6/platform/emlib/src/em_lcd.o
+ .text          0x00000000        0x0 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .data          0x00000000        0x0 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .bss           0x00000000        0x0 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .rodata.BUS_RegBitWrite.str1.1
+                0x00000000       0x52 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.BUS_RegBitWrite
+                0x00000000       0x2c ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .rodata.LESENSE_ScanFreqSet.str1.1
+                0x00000000       0x33 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_ScanFreqSet
+                0x00000000       0x94 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_StartDelaySet
+                0x00000000       0x2c ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_ClkDivSet
+                0x00000000       0x4c ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_AltExConfig
+                0x00000000       0x90 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_ChannelEnable
+                0x00000000       0x24 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_ChannelEnableMask
+                0x00000000        0xc ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_ChannelTimingSet
+                0x00000000       0x50 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_ChannelThresSet
+                0x00000000       0x58 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_ChannelConfig
+                0x00000000      0x14c ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_ChannelAllConfig
+                0x00000000       0x18 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_DecoderStateConfig
+                0x00000000       0xc4 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_DecoderStateAllConfig
+                0x00000000       0x1a ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_DecoderStateSet
+                0x00000000       0x24 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_DecoderStateGet
+                0x00000000       0x10 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_ScanStart
+                0x00000000       0x18 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_ScanModeSet
+                0x00000000       0x18 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_ScanStop
+                0x00000000       0x18 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_DecoderStart
+                0x00000000       0x18 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_ResultBufferClear
+                0x00000000       0x18 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_Reset
+                0x00000000       0x84 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .text.LESENSE_Init
+                0x00000000      0x120 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .debug_info    0x00000000     0x1c4b ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .debug_abbrev  0x00000000      0x379 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .debug_loc     0x00000000      0xbb0 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .debug_aranges
+                0x00000000       0xc8 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .debug_ranges  0x00000000       0xd8 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .debug_line    0x00000000      0xe76 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .debug_str     0x00000000     0x162e ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .comment       0x00000000       0x46 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .debug_frame   0x00000000      0x254 ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
+ .ARM.attributes
+                0x00000000       0x2d ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
  .text          0x00000000        0x0 ./gecko_sdk_4.4.6/platform/emlib/src/em_msc.o
  .data          0x00000000        0x0 ./gecko_sdk_4.4.6/platform/emlib/src/em_msc.o
  .bss           0x00000000        0x0 ./gecko_sdk_4.4.6/platform/emlib/src/em_msc.o
@@ -582,6 +591,29 @@ Discarded input sections
  .debug_frame   0x00000000       0x8c ./gecko_sdk_4.4.6/platform/emlib/src/em_timer.o
  .ARM.attributes
                 0x00000000       0x2d ./gecko_sdk_4.4.6/platform/emlib/src/em_timer.o
+ .text          0x00000000        0x0 ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
+ .data          0x00000000        0x0 ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
+ .bss           0x00000000        0x0 ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
+ .text.VCMP_LowPowerRefSet
+                0x00000000       0x16 ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
+ .rodata.VCMP_TriggerSet.str1.1
+                0x00000000       0x30 ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
+ .text.VCMP_TriggerSet
+                0x00000000       0x28 ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
+ .text.VCMP_Init
+                0x00000000       0xf8 ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
+ .debug_info    0x00000000      0x41d ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
+ .debug_abbrev  0x00000000      0x1ea ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
+ .debug_loc     0x00000000       0xc0 ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
+ .debug_aranges
+                0x00000000       0x30 ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
+ .debug_ranges  0x00000000       0x38 ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
+ .debug_line    0x00000000      0x46e ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
+ .debug_str     0x00000000      0x3b8 ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
+ .comment       0x00000000       0x46 ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
+ .debug_frame   0x00000000       0x54 ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
+ .ARM.attributes
+                0x00000000       0x2d ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
  .text          0x00000000        0x0 ./gecko_sdk_4.4.6/platform/service/device_init/src/sl_device_init_emu_s0.o
  .data          0x00000000        0x0 ./gecko_sdk_4.4.6/platform/service/device_init/src/sl_device_init_emu_s0.o
  .bss           0x00000000        0x0 ./gecko_sdk_4.4.6/platform/service/device_init/src/sl_device_init_emu_s0.o
@@ -702,6 +734,132 @@ Discarded input sections
  .debug_str     0x00000000       0x92 ./gecko_sdk_4.4.6/platform/service/udelay/src/sl_udelay_armv6m_gcc.o
  .ARM.attributes
                 0x00000000       0x1b ./gecko_sdk_4.4.6/platform/service/udelay/src/sl_udelay_armv6m_gcc.o
+ .text          0x00000000        0x0 ./lcdscreen/segmentlcd.o
+ .data          0x00000000        0x0 ./lcdscreen/segmentlcd.o
+ .bss           0x00000000        0x0 ./lcdscreen/segmentlcd.o
+ .text.LCD_SyncBusyDelay
+                0x00000000       0x10 ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_AllOff
+                0x00000000       0xac ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_AllOn
+                0x00000000       0xcc ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_AlphaNumberOff
+                0x00000000       0xa8 ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_Block
+                0x00000000       0xb4 ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_Disable
+                0x00000000       0x30 ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_Init
+                0x00000000       0xac ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_NumberOff
+                0x00000000       0x4c ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_Number
+                0x00000000       0xc4 ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_Symbol
+                0x00000000       0x28 ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_UnsignedHex
+                0x00000000       0x7c ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_Write
+                0x00000000       0x7c ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_LowerHex
+                0x00000000       0x42 ./lcdscreen/segmentlcd.o
+ .rodata.SegmentLCD_LowerNumber.str1.1
+                0x00000000        0x8 ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_LowerNumber
+                0x00000000       0x88 ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_segCnt
+                0x00000000       0xb4 ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_ARing
+                0x00000000       0x1c ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_Battery
+                0x00000000       0x28 ./lcdscreen/segmentlcd.o
+ .text.SegmentLCD_EnergyMode
+                0x00000000       0x1c ./lcdscreen/segmentlcd.o
+ .rodata.CSWTCH.37
+                0x00000000        0xf ./lcdscreen/segmentlcd.o
+ .rodata.CSWTCH.36
+                0x00000000        0xf ./lcdscreen/segmentlcd.o
+ .rodata.lcdInit
+                0x00000000       0x14 ./lcdscreen/segmentlcd.o
+ .rodata.Blocks
+                0x00000000        0x8 ./lcdscreen/segmentlcd.o
+ .rodata.Segment_Numbers
+                0x00000000       0x22 ./lcdscreen/segmentlcd.o
+ .rodata.Segment_Alphabet
+                0x00000000       0xb8 ./lcdscreen/segmentlcd.o
+ .rodata.EFM_Display
+                0x00000000      0x1fe ./lcdscreen/segmentlcd.o
+ .rodata        0x00000000       0x40 ./lcdscreen/segmentlcd.o
+ .debug_info    0x00000000     0x2151 ./lcdscreen/segmentlcd.o
+ .debug_abbrev  0x00000000      0x36f ./lcdscreen/segmentlcd.o
+ .debug_loc     0x00000000     0x15a5 ./lcdscreen/segmentlcd.o
+ .debug_aranges
+                0x00000000       0xa8 ./lcdscreen/segmentlcd.o
+ .debug_ranges  0x00000000      0x120 ./lcdscreen/segmentlcd.o
+ .debug_line    0x00000000      0xc0e ./lcdscreen/segmentlcd.o
+ .debug_str     0x00000000      0xf3f ./lcdscreen/segmentlcd.o
+ .comment       0x00000000       0x46 ./lcdscreen/segmentlcd.o
+ .debug_frame   0x00000000      0x224 ./lcdscreen/segmentlcd.o
+ .ARM.attributes
+                0x00000000       0x2d ./lcdscreen/segmentlcd.o
+ .text          0x00000000        0x0 ./lcdscreen/segmentlcd_individual.o
+ .data          0x00000000        0x0 ./lcdscreen/segmentlcd_individual.o
+ .bss           0x00000000        0x0 ./lcdscreen/segmentlcd_individual.o
+ .text.SegmentLCD_UpperSegments
+                0x00000000       0x58 ./lcdscreen/segmentlcd_individual.o
+ .text.SegmentLCD_LowerSegments
+                0x00000000       0x58 ./lcdscreen/segmentlcd_individual.o
+ .data.Text     0x00000000       0xc4 ./lcdscreen/segmentlcd_individual.o
+ .data.Number   0x00000000       0x38 ./lcdscreen/segmentlcd_individual.o
+ .debug_info    0x00000000      0x7b5 ./lcdscreen/segmentlcd_individual.o
+ .debug_abbrev  0x00000000      0x1cb ./lcdscreen/segmentlcd_individual.o
+ .debug_loc     0x00000000      0x232 ./lcdscreen/segmentlcd_individual.o
+ .debug_aranges
+                0x00000000       0x28 ./lcdscreen/segmentlcd_individual.o
+ .debug_ranges  0x00000000       0x48 ./lcdscreen/segmentlcd_individual.o
+ .debug_line    0x00000000      0x3e3 ./lcdscreen/segmentlcd_individual.o
+ .debug_str     0x00000000      0x3c6 ./lcdscreen/segmentlcd_individual.o
+ .comment       0x00000000       0x46 ./lcdscreen/segmentlcd_individual.o
+ .debug_frame   0x00000000       0x50 ./lcdscreen/segmentlcd_individual.o
+ .ARM.attributes
+                0x00000000       0x2d ./lcdscreen/segmentlcd_individual.o
+ .text          0x00000000        0x0 ./touchslider/caplesense.o
+ .data          0x00000000        0x0 ./touchslider/caplesense.o
+ .bss           0x00000000        0x0 ./touchslider/caplesense.o
+ .text.CAPLESENSE_setupCMU
+                0x00000000       0x7c ./touchslider/caplesense.o
+ .text.CAPLESENSE_setupGPIO
+                0x00000000       0x3e ./touchslider/caplesense.o
+ .text.CAPLESENSE_setupACMP
+                0x00000000       0x40 ./touchslider/caplesense.o
+ .text.CAPLESENSE_setupLESENSE
+                0x00000000      0x140 ./touchslider/caplesense.o
+ .text.CAPLESENSE_setupCallbacks
+                0x00000000       0x14 ./touchslider/caplesense.o
+ .text.CAPLESENSE_getSegmentChannel
+                0x00000000        0xc ./touchslider/caplesense.o
+ .text.CAPLESENSE_getVal
+                0x00000000        0xc ./touchslider/caplesense.o
+ .text.CAPLESENSE_getNormalizedVal
+                0x00000000       0x1c ./touchslider/caplesense.o
+ .text.CAPLESENSE_getSliderPosition
+                0x00000000       0xac ./touchslider/caplesense.o
+ .text.CAPLESENSE_Sleep
+                0x00000000        0x6 ./touchslider/caplesense.o
+ .text.CAPLESENSE_Init
+                0x00000000       0x26 ./touchslider/caplesense.o
+ .rodata.initChsSense.0
+                0x00000000      0x200 ./touchslider/caplesense.o
+ .bss.capsenseCalibrateVals.1
+                0x00000000        0x8 ./touchslider/caplesense.o
+ .rodata.initChsSleep.2
+                0x00000000      0x200 ./touchslider/caplesense.o
+ .rodata.initLESENSE.3
+                0x00000000       0x40 ./touchslider/caplesense.o
+ .data.init.4   0x00000000        0x1 ./touchslider/caplesense.o
+ .rodata.initACMP.5
+                0x00000000       0x14 ./touchslider/caplesense.o
+ .rodata        0x00000000       0x2c ./touchslider/caplesense.o
  .text          0x00000000       0xa0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_ldivmod.o)
  .data          0x00000000        0x0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_ldivmod.o)
  .bss           0x00000000        0x0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_ldivmod.o)
@@ -955,8 +1113,6 @@ LOAD c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2
 START GROUP
 LOAD ./app.o
 LOAD ./main.o
-LOAD ./segmentlcd.o
-LOAD ./segmentlcd_individual.o
 LOAD ./autogen/sl_board_default_init.o
 LOAD ./autogen/sl_device_init_clocks.o
 LOAD ./autogen/sl_event_handler.o
@@ -967,15 +1123,18 @@ LOAD ./gecko_sdk_4.4.6/platform/Device/SiliconLabs/EFM32GG/Source/system_efm32gg
 LOAD ./gecko_sdk_4.4.6/platform/common/src/sl_assert.o
 LOAD ./gecko_sdk_4.4.6/platform/common/src/sl_syscalls.o
 LOAD ./gecko_sdk_4.4.6/platform/common/toolchain/src/sl_memory.o
+LOAD ./gecko_sdk_4.4.6/platform/emlib/src/em_acmp.o
 LOAD ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
 LOAD ./gecko_sdk_4.4.6/platform/emlib/src/em_core.o
 LOAD ./gecko_sdk_4.4.6/platform/emlib/src/em_emu.o
 LOAD ./gecko_sdk_4.4.6/platform/emlib/src/em_gpio.o
 LOAD ./gecko_sdk_4.4.6/platform/emlib/src/em_lcd.o
+LOAD ./gecko_sdk_4.4.6/platform/emlib/src/em_lesense.o
 LOAD ./gecko_sdk_4.4.6/platform/emlib/src/em_msc.o
 LOAD ./gecko_sdk_4.4.6/platform/emlib/src/em_rtc.o
 LOAD ./gecko_sdk_4.4.6/platform/emlib/src/em_system.o
 LOAD ./gecko_sdk_4.4.6/platform/emlib/src/em_timer.o
+LOAD ./gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o
 LOAD ./gecko_sdk_4.4.6/platform/service/device_init/src/sl_device_init_emu_s0.o
 LOAD ./gecko_sdk_4.4.6/platform/service/device_init/src/sl_device_init_hfxo_s0.o
 LOAD ./gecko_sdk_4.4.6/platform/service/device_init/src/sl_device_init_lfxo_s0.o
@@ -986,6 +1145,9 @@ LOAD ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_init.o
 LOAD ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_process_action.o
 LOAD ./gecko_sdk_4.4.6/platform/service/udelay/src/sl_udelay.o
 LOAD ./gecko_sdk_4.4.6/platform/service/udelay/src/sl_udelay_armv6m_gcc.o
+LOAD ./lcdscreen/segmentlcd.o
+LOAD ./lcdscreen/segmentlcd_individual.o
+LOAD ./touchslider/caplesense.o
 LOAD c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a
 LOAD c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a
 LOAD c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libm.a
@@ -1008,7 +1170,7 @@ END GROUP
 LOAD c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtend.o
 LOAD c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtn.o
 
-.text           0x00000000     0x1aec
+.text           0x00000000     0x1b9c
                 0x00000000                linker_vectors_begin = .
  *(.vectors)
  .vectors       0x00000000       0xdc ./gecko_sdk_4.4.6/platform/Device/SiliconLabs/EFM32GG/Source/startup_efm32gg.o
@@ -1182,154 +1344,156 @@ LOAD c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2
  .text.RTC_IRQHandler
                 0x00001494       0x84 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.o
                 0x00001494                RTC_IRQHandler
- .text          0x00001518       0x30 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
-                0x00001518                __aeabi_uldivmod
+ .text.LESENSE_IRQHandler
+                0x00001518       0x9c ./touchslider/caplesense.o
+                0x00001518                LESENSE_IRQHandler
+ .text          0x000015b4       0x30 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
+                0x000015b4                __aeabi_uldivmod
  .text.__udivmoddi4
-                0x00001548      0x2c0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
-                0x00001548                __udivmoddi4
- .text          0x00001808        0x4 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
-                0x00001808                __aeabi_idiv0
-                0x00001808                __aeabi_ldiv0
- .text.exit     0x0000180c       0x24 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-exit.o)
-                0x0000180c                exit
+                0x000015e4      0x2c0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+                0x000015e4                __udivmoddi4
+ .text          0x000018a4        0x4 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
+                0x000018a4                __aeabi_idiv0
+                0x000018a4                __aeabi_ldiv0
+ .text.exit     0x000018a8       0x24 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-exit.o)
+                0x000018a8                exit
  .text.__libc_init_array
-                0x00001830       0x48 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-init.o)
-                0x00001830                __libc_init_array
+                0x000018cc       0x48 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-init.o)
+                0x000018cc                __libc_init_array
  .text.app_init
-                0x00001878        0x2 ./app.o
-                0x00001878                app_init
+                0x00001914        0x2 ./app.o
+                0x00001914                app_init
  .text.app_process_action
-                0x0000187a        0x2 ./app.o
-                0x0000187a                app_process_action
+                0x00001916        0x2 ./app.o
+                0x00001916                app_process_action
  .text.startup.main
-                0x0000187c       0x14 ./main.o
-                0x0000187c                main
+                0x00001918       0x14 ./main.o
+                0x00001918                main
  .text.sl_board_default_init
-                0x00001890        0x2 ./autogen/sl_board_default_init.o
-                0x00001890                sl_board_default_init
+                0x0000192c        0x2 ./autogen/sl_board_default_init.o
+                0x0000192c                sl_board_default_init
  .text.sl_driver_init
-                0x00001892        0x2 ./autogen/sl_event_handler.o
-                0x00001892                sl_driver_init
+                0x0000192e        0x2 ./autogen/sl_event_handler.o
+                0x0000192e                sl_driver_init
  .text.sl_service_init
-                0x00001894        0xe ./autogen/sl_event_handler.o
-                0x00001894                sl_service_init
+                0x00001930        0xe ./autogen/sl_event_handler.o
+                0x00001930                sl_service_init
  .text.sl_stack_init
-                0x000018a2        0x2 ./autogen/sl_event_handler.o
-                0x000018a2                sl_stack_init
+                0x0000193e        0x2 ./autogen/sl_event_handler.o
+                0x0000193e                sl_stack_init
  .text.sl_internal_app_init
-                0x000018a4        0x2 ./autogen/sl_event_handler.o
-                0x000018a4                sl_internal_app_init
+                0x00001940        0x2 ./autogen/sl_event_handler.o
+                0x00001940                sl_internal_app_init
  .text.sl_platform_process_action
-                0x000018a6        0x2 ./autogen/sl_event_handler.o
-                0x000018a6                sl_platform_process_action
+                0x00001942        0x2 ./autogen/sl_event_handler.o
+                0x00001942                sl_platform_process_action
  .text.sl_service_process_action
-                0x000018a8        0x2 ./autogen/sl_event_handler.o
-                0x000018a8                sl_service_process_action
+                0x00001944        0x2 ./autogen/sl_event_handler.o
+                0x00001944                sl_service_process_action
  .text.sl_stack_process_action
-                0x000018aa        0x2 ./autogen/sl_event_handler.o
-                0x000018aa                sl_stack_process_action
+                0x00001946        0x2 ./autogen/sl_event_handler.o
+                0x00001946                sl_stack_process_action
  .text.sl_internal_app_process_action
-                0x000018ac        0x2 ./autogen/sl_event_handler.o
-                0x000018ac                sl_internal_app_process_action
+                0x00001948        0x2 ./autogen/sl_event_handler.o
+                0x00001948                sl_internal_app_process_action
  .text.sl_board_configure_vcom
-                0x000018ae        0x4 ./gecko_sdk_4.4.6/hardware/board/src/sl_board_control_gpio.o
-                0x000018ae                sl_board_configure_vcom
+                0x0000194a        0x4 ./gecko_sdk_4.4.6/hardware/board/src/sl_board_control_gpio.o
+                0x0000194a                sl_board_configure_vcom
  .text.Default_Handler
-                0x000018b2        0x2 ./gecko_sdk_4.4.6/platform/Device/SiliconLabs/EFM32GG/Source/startup_efm32gg.o
-                0x000018b2                TIMER2_IRQHandler
-                0x000018b2                DebugMon_Handler
-                0x000018b2                USART0_TX_IRQHandler
-                0x000018b2                I2C0_IRQHandler
-                0x000018b2                HardFault_Handler
-                0x000018b2                LEUART1_IRQHandler
-                0x000018b2                SysTick_Handler
-                0x000018b2                USART1_RX_IRQHandler
-                0x000018b2                PendSV_Handler
-                0x000018b2                NMI_Handler
-                0x000018b2                I2C1_IRQHandler
-                0x000018b2                TIMER3_IRQHandler
-                0x000018b2                USART1_TX_IRQHandler
-                0x000018b2                MSC_IRQHandler
-                0x000018b2                ADC0_IRQHandler
-                0x000018b2                UsageFault_Handler
-                0x000018b2                LEUART0_IRQHandler
-                0x000018b2                GPIO_EVEN_IRQHandler
-                0x000018b2                UART0_TX_IRQHandler
-                0x000018b2                UART1_TX_IRQHandler
-                0x000018b2                TIMER0_IRQHandler
-                0x000018b2                LCD_IRQHandler
-                0x000018b2                PCNT2_IRQHandler
-                0x000018b2                UART0_RX_IRQHandler
-                0x000018b2                LETIMER0_IRQHandler
-                0x000018b2                TIMER1_IRQHandler
-                0x000018b2                USART2_RX_IRQHandler
-                0x000018b2                Default_Handler
-                0x000018b2                EMU_IRQHandler
-                0x000018b2                PCNT0_IRQHandler
-                0x000018b2                sl_app_properties
-                0x000018b2                USB_IRQHandler
-                0x000018b2                BURTC_IRQHandler
-                0x000018b2                PCNT1_IRQHandler
-                0x000018b2                ACMP0_IRQHandler
-                0x000018b2                USART0_RX_IRQHandler
-                0x000018b2                MemManage_Handler
-                0x000018b2                SVC_Handler
-                0x000018b2                DAC0_IRQHandler
-                0x000018b2                UART1_RX_IRQHandler
-                0x000018b2                CMU_IRQHandler
-                0x000018b2                EBI_IRQHandler
-                0x000018b2                GPIO_ODD_IRQHandler
-                0x000018b2                LESENSE_IRQHandler
-                0x000018b2                AES_IRQHandler
-                0x000018b2                VCMP_IRQHandler
-                0x000018b2                DMA_IRQHandler
-                0x000018b2                BusFault_Handler
-                0x000018b2                USART2_TX_IRQHandler
+                0x0000194e        0x2 ./gecko_sdk_4.4.6/platform/Device/SiliconLabs/EFM32GG/Source/startup_efm32gg.o
+                0x0000194e                TIMER2_IRQHandler
+                0x0000194e                DebugMon_Handler
+                0x0000194e                USART0_TX_IRQHandler
+                0x0000194e                I2C0_IRQHandler
+                0x0000194e                HardFault_Handler
+                0x0000194e                LEUART1_IRQHandler
+                0x0000194e                SysTick_Handler
+                0x0000194e                USART1_RX_IRQHandler
+                0x0000194e                PendSV_Handler
+                0x0000194e                NMI_Handler
+                0x0000194e                I2C1_IRQHandler
+                0x0000194e                TIMER3_IRQHandler
+                0x0000194e                USART1_TX_IRQHandler
+                0x0000194e                MSC_IRQHandler
+                0x0000194e                ADC0_IRQHandler
+                0x0000194e                UsageFault_Handler
+                0x0000194e                LEUART0_IRQHandler
+                0x0000194e                GPIO_EVEN_IRQHandler
+                0x0000194e                UART0_TX_IRQHandler
+                0x0000194e                UART1_TX_IRQHandler
+                0x0000194e                TIMER0_IRQHandler
+                0x0000194e                LCD_IRQHandler
+                0x0000194e                PCNT2_IRQHandler
+                0x0000194e                UART0_RX_IRQHandler
+                0x0000194e                LETIMER0_IRQHandler
+                0x0000194e                TIMER1_IRQHandler
+                0x0000194e                USART2_RX_IRQHandler
+                0x0000194e                Default_Handler
+                0x0000194e                EMU_IRQHandler
+                0x0000194e                PCNT0_IRQHandler
+                0x0000194e                sl_app_properties
+                0x0000194e                USB_IRQHandler
+                0x0000194e                BURTC_IRQHandler
+                0x0000194e                PCNT1_IRQHandler
+                0x0000194e                ACMP0_IRQHandler
+                0x0000194e                USART0_RX_IRQHandler
+                0x0000194e                MemManage_Handler
+                0x0000194e                SVC_Handler
+                0x0000194e                DAC0_IRQHandler
+                0x0000194e                UART1_RX_IRQHandler
+                0x0000194e                CMU_IRQHandler
+                0x0000194e                EBI_IRQHandler
+                0x0000194e                GPIO_ODD_IRQHandler
+                0x0000194e                AES_IRQHandler
+                0x0000194e                VCMP_IRQHandler
+                0x0000194e                DMA_IRQHandler
+                0x0000194e                BusFault_Handler
+                0x0000194e                USART2_TX_IRQHandler
  .text.SystemLFRCOClockGet
-                0x000018b4        0x6 ./gecko_sdk_4.4.6/platform/Device/SiliconLabs/EFM32GG/Source/system_efm32gg.o
-                0x000018b4                SystemLFRCOClockGet
+                0x00001950        0x6 ./gecko_sdk_4.4.6/platform/Device/SiliconLabs/EFM32GG/Source/system_efm32gg.o
+                0x00001950                SystemLFRCOClockGet
  .text.SystemULFRCOClockGet
-                0x000018ba        0x6 ./gecko_sdk_4.4.6/platform/Device/SiliconLabs/EFM32GG/Source/system_efm32gg.o
-                0x000018ba                SystemULFRCOClockGet
+                0x00001956        0x6 ./gecko_sdk_4.4.6/platform/Device/SiliconLabs/EFM32GG/Source/system_efm32gg.o
+                0x00001956                SystemULFRCOClockGet
  .text.assertEFM
-                0x000018c0        0x2 ./gecko_sdk_4.4.6/platform/common/src/sl_assert.o
-                0x000018c0                assertEFM
- .text._exit    0x000018c2        0x2 ./gecko_sdk_4.4.6/platform/common/src/sl_syscalls.o
-                0x000018c2                _exit
+                0x0000195c        0x2 ./gecko_sdk_4.4.6/platform/common/src/sl_assert.o
+                0x0000195c                assertEFM
+ .text._exit    0x0000195e        0x2 ./gecko_sdk_4.4.6/platform/common/src/sl_syscalls.o
+                0x0000195e                _exit
  .text.CORE_EnterCritical
-                0x000018c4        0x8 ./gecko_sdk_4.4.6/platform/emlib/src/em_core.o
-                0x000018c4                CORE_EnterCritical
+                0x00001960        0x8 ./gecko_sdk_4.4.6/platform/emlib/src/em_core.o
+                0x00001960                CORE_EnterCritical
  .text.CORE_ExitCritical
-                0x000018cc        0x6 ./gecko_sdk_4.4.6/platform/emlib/src/em_core.o
-                0x000018cc                CORE_ExitCritical
+                0x00001968        0x6 ./gecko_sdk_4.4.6/platform/emlib/src/em_core.o
+                0x00001968                CORE_ExitCritical
  .text.CORE_EnterAtomic
-                0x000018d2        0xc ./gecko_sdk_4.4.6/platform/emlib/src/em_core.o
-                0x000018d2                CORE_EnterAtomic
+                0x0000196e        0xc ./gecko_sdk_4.4.6/platform/emlib/src/em_core.o
+                0x0000196e                CORE_EnterAtomic
  .text.CORE_ExitAtomic
-                0x000018de        0x6 ./gecko_sdk_4.4.6/platform/emlib/src/em_core.o
-                0x000018de                CORE_ExitAtomic
+                0x0000197a        0x6 ./gecko_sdk_4.4.6/platform/emlib/src/em_core.o
+                0x0000197a                CORE_ExitAtomic
  .text.sl_device_init_lfxo
-                0x000018e4       0x22 ./gecko_sdk_4.4.6/platform/service/device_init/src/sl_device_init_lfxo_s0.o
-                0x000018e4                sl_device_init_lfxo
+                0x00001980       0x22 ./gecko_sdk_4.4.6/platform/service/device_init/src/sl_device_init_lfxo_s0.o
+                0x00001980                sl_device_init_lfxo
  .text.sl_system_init
-                0x00001906       0x1a ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_init.o
-                0x00001906                sl_system_init
+                0x000019a2       0x1a ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_init.o
+                0x000019a2                sl_system_init
  .text.sl_system_process_action
-                0x00001920       0x16 ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_process_action.o
-                0x00001920                sl_system_process_action
- .text.memset   0x00001936       0x10 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-memset.o)
-                0x00001936                memset
-                0x00001960                . = ALIGN (0x20)
- *fill*         0x00001946       0x1a 
-                0x00001960                linker_code_end = .
+                0x000019bc       0x16 ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_process_action.o
+                0x000019bc                sl_system_process_action
+ .text.memset   0x000019d2       0x10 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-memset.o)
+                0x000019d2                memset
+                0x00001a00                . = ALIGN (0x20)
+ *fill*         0x000019e2       0x1e 
+                0x00001a00                linker_code_end = .
  *(.init)
- .init          0x00001960        0x4 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crti.o
-                0x00001960                _init
- .init          0x00001964        0x8 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtn.o
+ .init          0x00001a00        0x4 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crti.o
+                0x00001a00                _init
+ .init          0x00001a04        0x8 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtn.o
  *(.fini)
- .fini          0x0000196c        0x4 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crti.o
-                0x0000196c                _fini
- .fini          0x00001970        0x8 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtn.o
+ .fini          0x00001a0c        0x4 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crti.o
+                0x00001a0c                _fini
+ .fini          0x00001a10        0x8 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -1340,82 +1504,84 @@ LOAD c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
-                0x00001978                __code_classification_validator_start__ = .
-                0x00001998                . = (. + 0x20)
- *fill*         0x00001978       0x20 
+                0x00001a18                __code_classification_validator_start__ = .
+                0x00001a38                . = (. + 0x20)
+ *fill*         0x00001a18       0x20 
  *(code_classification_validator)
-                0x000019a0                . = ALIGN (0x20)
- *fill*         0x00001998        0x8 
-                0x000019a0                __code_classification_validator_end__ = .
+                0x00001a40                . = ALIGN (0x20)
+ *fill*         0x00001a38        0x8 
+                0x00001a40                __code_classification_validator_end__ = .
  *(.rodata*)
  .rodata.CMU_DivToLog2.str1.1
-                0x000019a0       0x52 ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
+                0x00001a40       0x52 ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
  .rodata.auxClkGet.str1.1
-                0x000019f2       0x2f ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
- *fill*         0x00001a21        0x1 
+                0x00001a92       0x2f ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
+ *fill*         0x00001ac1        0x1 
  .rodata.CSWTCH.62
-                0x00001a22        0xa ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
+                0x00001ac2        0xa ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
  .rodata.CSWTCH.61
-                0x00001a2c        0xa ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
+                0x00001acc        0xa ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
  .rodata.CSWTCH.60
-                0x00001a36        0x5 ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
+                0x00001ad6        0x5 ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
  .rodata.RTC_CompareGet.str1.1
-                0x00001a3b       0x2f ./gecko_sdk_4.4.6/platform/emlib/src/em_rtc.o
+                0x00001adb       0x2f ./gecko_sdk_4.4.6/platform/emlib/src/em_rtc.o
  .rodata.SYSTEM_ChipRevisionGet.str1.1
-                0x00001a6a       0x32 ./gecko_sdk_4.4.6/platform/emlib/src/em_system.o
- .rodata        0x00001a9c        0x5 ./gecko_sdk_4.4.6/platform/service/device_init/src/sl_device_init_emu_s0.o
- .rodata        0x00001aa1        0x4 ./gecko_sdk_4.4.6/platform/service/device_init/src/sl_device_init_hfxo_s0.o
+                0x00001b0a       0x32 ./gecko_sdk_4.4.6/platform/emlib/src/em_system.o
+ .rodata        0x00001b3c        0x5 ./gecko_sdk_4.4.6/platform/service/device_init/src/sl_device_init_emu_s0.o
+ .rodata        0x00001b41        0x4 ./gecko_sdk_4.4.6/platform/service/device_init/src/sl_device_init_hfxo_s0.o
  .rodata.process_timer_irq.str1.1
-                0x00001aa5       0x43 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
- .rodata        0x00001ae8        0x3 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.o
+                0x00001b45       0x43 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
+ .rodata        0x00001b88        0x3 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.o
+ .rodata.channelsInUse
+                0x00001b8b       0x10 ./touchslider/caplesense.o
  *(.eh_frame*)
- *fill*         0x00001aeb        0x1 
- .eh_frame      0x00001aec        0x0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
+ *fill*         0x00001b9b        0x1 
+ .eh_frame      0x00001b9c        0x0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
 
-.glue_7         0x00001aec        0x0
- .glue_7        0x00001aec        0x0 linker stubs
+.glue_7         0x00001b9c        0x0
+ .glue_7        0x00001b9c        0x0 linker stubs
 
-.glue_7t        0x00001aec        0x0
- .glue_7t       0x00001aec        0x0 linker stubs
+.glue_7t        0x00001b9c        0x0
+ .glue_7t       0x00001b9c        0x0 linker stubs
 
-.vfp11_veneer   0x00001aec        0x0
- .vfp11_veneer  0x00001aec        0x0 linker stubs
+.vfp11_veneer   0x00001b9c        0x0
+ .vfp11_veneer  0x00001b9c        0x0 linker stubs
 
-.v4_bx          0x00001aec        0x0
- .v4_bx         0x00001aec        0x0 linker stubs
+.v4_bx          0x00001b9c        0x0
+ .v4_bx         0x00001b9c        0x0 linker stubs
 
-.iplt           0x00001aec        0x0
- .iplt          0x00001aec        0x0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
+.iplt           0x00001b9c        0x0
+ .iplt          0x00001b9c        0x0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00001aec                __exidx_start = .
+                0x00001b9c                __exidx_start = .
 
-.ARM.exidx      0x00001aec        0x8
+.ARM.exidx      0x00001b9c        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x00001aec        0x8 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crt0.o
+ .ARM.exidx     0x00001b9c        0x8 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crt0.o
                                  0x10 (size before relaxing)
  .ARM.exidx.text.__udivmoddi4
-                0x00001af4        0x0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+                0x00001ba4        0x0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
                                   0x8 (size before relaxing)
-                0x00001af4                __exidx_end = .
+                0x00001ba4                __exidx_end = .
 
-.rel.dyn        0x00001af4        0x0
- .rel.iplt      0x00001af4        0x0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
+.rel.dyn        0x00001ba4        0x0
+ .rel.iplt      0x00001ba4        0x0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
 
-.copy.table     0x00001af4        0xc
-                0x00001af4                . = ALIGN (0x4)
-                0x00001af4                __copy_table_start__ = .
-                0x00001af4        0x4 LONG 0x1b00 __etext
-                0x00001af8        0x4 LONG 0x20001000 __data_start__
-                0x00001afc        0x4 LONG 0x7 ((__data_end__ - __data_start__) / 0x4)
-                0x00001b00                __copy_table_end__ = .
+.copy.table     0x00001ba4        0xc
+                0x00001ba4                . = ALIGN (0x4)
+                0x00001ba4                __copy_table_start__ = .
+                0x00001ba4        0x4 LONG 0x1bb0 __etext
+                0x00001ba8        0x4 LONG 0x20001000 __data_start__
+                0x00001bac        0x4 LONG 0x17 ((__data_end__ - __data_start__) / 0x4)
+                0x00001bb0                __copy_table_end__ = .
 
-.zero.table     0x00001b00        0x0
-                0x00001b00                . = ALIGN (0x4)
-                0x00001b00                __zero_table_start__ = .
-                0x00001b00                __zero_table_end__ = .
-                0x00001b00                __etext = .
+.zero.table     0x00001bb0        0x0
+                0x00001bb0                . = ALIGN (0x4)
+                0x00001bb0                __zero_table_start__ = .
+                0x00001bb0                __zero_table_end__ = .
+                0x00001bb0                __etext = .
                 0x20000000                . = ORIGIN (RAM)
 
 .stack          0x20000000     0x1000
@@ -1429,7 +1595,7 @@ LOAD c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2
 .noinit
  *(.noinit*)
 
-.data           0x20001000       0x1c load address 0x00001b00
+.data           0x20001000       0x5c load address 0x00001bb0
                 0x20001000                . = ALIGN (0x4)
                 0x20001000                __data_start__ = .
  *(vtable)
@@ -1441,106 +1607,115 @@ LOAD c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2
                 0x20001004        0x4 ./gecko_sdk_4.4.6/platform/Device/SiliconLabs/EFM32GG/Source/system_efm32gg.o
  .data.SystemHFXOClock
                 0x20001008        0x4 ./gecko_sdk_4.4.6/platform/Device/SiliconLabs/EFM32GG/Source/system_efm32gg.o
+ .data.channelMaxValues
+                0x2000100c       0x40 ./touchslider/caplesense.o
  .data.hfxo_precision
-                0x2000100c        0x2 ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
+                0x2000104c        0x2 ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
  .data.lfxo_precision
-                0x2000100e        0x2 ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
+                0x2000104e        0x2 ./gecko_sdk_4.4.6/platform/emlib/src/em_cmu.o
  .data.comp_int_disabled
-                0x20001010        0x1 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.o
-                0x20001014                . = ALIGN (0x4)
- *fill*         0x20001011        0x3 
+                0x20001050        0x1 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.o
+                0x20001054                . = ALIGN (0x4)
+ *fill*         0x20001051        0x3 
                 [!provide]                PROVIDE (__ram_func_section_start = .)
  *(.ram)
                 [!provide]                PROVIDE (__ram_func_section_end = .)
-                0x20001014                . = ALIGN (0x4)
-                0x20001014                PROVIDE (__preinit_array_start = .)
+                0x20001054                . = ALIGN (0x4)
+                0x20001054                PROVIDE (__preinit_array_start = .)
  *(.preinit_array)
-                0x20001014                PROVIDE (__preinit_array_end = .)
-                0x20001014                . = ALIGN (0x4)
-                0x20001014                PROVIDE (__init_array_start = .)
+                0x20001054                PROVIDE (__preinit_array_end = .)
+                0x20001054                . = ALIGN (0x4)
+                0x20001054                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
- .init_array    0x20001014        0x4 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
-                0x20001018                PROVIDE (__init_array_end = .)
-                0x20001018                . = ALIGN (0x4)
+ .init_array    0x20001054        0x4 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
+                0x20001058                PROVIDE (__init_array_end = .)
+                0x20001058                . = ALIGN (0x4)
                 [!provide]                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array)
- .fini_array    0x20001018        0x4 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
+ .fini_array    0x20001058        0x4 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
                 [!provide]                PROVIDE (__fini_array_end = .)
-                0x2000101c                . = ALIGN (0x4)
-                0x2000101c                __data_end__ = .
+                0x2000105c                . = ALIGN (0x4)
+                0x2000105c                __data_end__ = .
 
 .tm_clone_table
-                0x2000101c        0x0 load address 0x00001b1c
+                0x2000105c        0x0 load address 0x00001c0c
  .tm_clone_table
-                0x2000101c        0x0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
+                0x2000105c        0x0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
  .tm_clone_table
-                0x2000101c        0x0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtend.o
+                0x2000105c        0x0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtend.o
 
-.igot.plt       0x2000101c        0x0 load address 0x00001b1c
- .igot.plt      0x2000101c        0x0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
+.igot.plt       0x2000105c        0x0 load address 0x00001c0c
+ .igot.plt      0x2000105c        0x0 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
 
-.bss            0x2000101c       0x38 load address 0x00001b1c
-                0x2000101c                . = ALIGN (0x4)
-                0x2000101c                __bss_start__ = .
+.bss            0x2000105c       0x80 load address 0x00001c0c
+                0x2000105c                . = ALIGN (0x4)
+                0x2000105c                __bss_start__ = .
  *(SORT_BY_ALIGNMENT(.bss*))
- .bss.object.0  0x2000101c       0x18 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
+ .bss.object.0  0x2000105c       0x18 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
  .bss.max_millisecond_conversion
-                0x20001034        0x4 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
+                0x20001074        0x4 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
  .bss.last_delta_update_count
-                0x20001038        0x4 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
+                0x20001078        0x4 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
  .bss.timer_head
-                0x2000103c        0x4 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
+                0x2000107c        0x4 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
  .bss.timer_frequency
-                0x20001040        0x4 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
+                0x20001080        0x4 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
  .bss.compare_value_32
-                0x20001044        0x4 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.o
+                0x20001084        0x4 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.o
+ .bss.lesenseChCb
+                0x20001088        0x4 ./touchslider/caplesense.o
+ .bss.lesenseScanCb
+                0x2000108c        0x4 ./touchslider/caplesense.o
+ .bss.channelValues
+                0x20001090       0x40 ./touchslider/caplesense.o
  .bss.__stdio_exit_handler
-                0x20001048        0x4 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-findfp.o)
-                0x20001048                __stdio_exit_handler
+                0x200010d0        0x4 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-findfp.o)
+                0x200010d0                __stdio_exit_handler
  .bss.overflow_counter
-                0x2000104c        0x2 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
+                0x200010d4        0x2 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
  .bss.completed.1
-                0x2000104e        0x1 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
+                0x200010d6        0x1 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtbegin.o
  .bss.sleep_on_isr_exit
-                0x2000104f        0x1 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
+                0x200010d7        0x1 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
  .bss.next_timer_to_expire_is_power_manager
-                0x20001050        0x1 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
+                0x200010d8        0x1 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
  .bss.is_sleeptimer_initialized
-                0x20001051        0x1 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
+                0x200010d9        0x1 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer.o
  .bss.rtc_overflow_count
-                0x20001052        0x1 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.o
+                0x200010da        0x1 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.o
+ .bss.currentChannel
+                0x200010db        0x1 ./touchslider/caplesense.o
  *(COMMON)
-                0x20001054                . = ALIGN (0x4)
- *fill*         0x20001053        0x1 
-                0x20001054                __bss_end__ = .
-                0x20001054                __ramfuncs_start__ = .
-                0x20001054                __vma_ramfuncs_start__ = .
-                0x00001b1c                __lma_ramfuncs_start__ = (__etext + SIZEOF (.data))
+                0x200010dc                . = ALIGN (0x4)
+                0x200010dc                __bss_end__ = .
+                0x200010dc                __ramfuncs_start__ = .
+                0x200010dc                __vma_ramfuncs_start__ = .
+                0x00001c0c                __lma_ramfuncs_start__ = (__etext + SIZEOF (.data))
                 0x00000000                __text_application_ram_offset__ = (. - __vma_ramfuncs_start__)
 
 text_application_ram
-                0x20001054        0x0 load address 0x00001b1c
-                0x20001054                . = ALIGN (0x4)
-                0x20001054                __text_application_ram_start__ = .
+                0x200010dc        0x0 load address 0x00001c0c
+                0x200010dc                . = ALIGN (0x4)
+                0x200010dc                __text_application_ram_start__ = .
  *(text_application_ram)
-                0x20001054                . = ALIGN (0x4)
-                0x20001054                __text_application_ram_end__ = .
-                0x20001054                . = ALIGN (0x4)
-                0x20001054                __vma_ramfuncs_end__ = .
-                0x00001b1c                __lma_ramfuncs_end__ = ((__lma_ramfuncs_start__ + __text_application_ram_offset__) + SIZEOF (text_application_ram))
-                0x20001054                __ramfuncs_end__ = .
+                0x200010dc                . = ALIGN (0x4)
+                0x200010dc                __text_application_ram_end__ = .
+                0x200010dc                . = ALIGN (0x4)
+                0x200010dc                __vma_ramfuncs_end__ = .
+                0x00001c0c                __lma_ramfuncs_end__ = ((__lma_ramfuncs_start__ + __text_application_ram_offset__) + SIZEOF (text_application_ram))
+                0x200010dc                __ramfuncs_end__ = .
 
-.heap           0x20001058      0x800
-                0x20001058                __HeapBase = .
-                0x20001058                __end__ = .
-                0x20001058                end = __end__
-                0x20001058                _end = __end__
+.heap           0x200010e0      0x800
+                0x200010e0                __HeapBase = .
+                0x200010e0                __end__ = .
+                0x200010e0                end = __end__
+                0x200010e0                _end = __end__
  *(.heap*)
- .heap          0x20001058      0x800 ./gecko_sdk_4.4.6/platform/common/toolchain/src/sl_memory.o
+ .heap          0x200010e0      0x800 ./gecko_sdk_4.4.6/platform/common/toolchain/src/sl_memory.o
                 0x20020000                __HeapLimit = (ORIGIN (RAM) + LENGTH (RAM))
-                0x0001efa8                __heap_size = (__HeapLimit - __HeapBase)
+                0x0001ef20                __heap_size = (__HeapLimit - __HeapBase)
                 0x20020000                __ram_end__ = 0x20020000
                 0x00100000                __main_flash_end__ = 0x100000
 
@@ -1619,23 +1794,25 @@ LOAD linker stubs
  .ARM.attributes
                 0x0000049d       0x2d ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_process_action.o
  .ARM.attributes
-                0x000004ca       0x1d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
+                0x000004ca       0x2d ./touchslider/caplesense.o
  .ARM.attributes
-                0x000004e7       0x2d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+                0x000004f7       0x1d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
  .ARM.attributes
-                0x00000514       0x1d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
+                0x00000514       0x2d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
  .ARM.attributes
-                0x00000531       0x2d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-exit.o)
+                0x00000541       0x1d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x0000055e       0x2d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-findfp.o)
+                0x0000055e       0x2d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-exit.o)
  .ARM.attributes
-                0x0000058b       0x2d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-memset.o)
+                0x0000058b       0x2d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-findfp.o)
  .ARM.attributes
-                0x000005b8       0x2d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-init.o)
+                0x000005b8       0x2d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-memset.o)
  .ARM.attributes
-                0x000005e5       0x2d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtend.o
+                0x000005e5       0x2d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-init.o)
  .ARM.attributes
-                0x00000612       0x1d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtn.o
+                0x00000612       0x2d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtend.o
+ .ARM.attributes
+                0x0000063f       0x1d c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp/crtn.o
 
 .comment        0x00000000       0x45
  .comment       0x00000000       0x45 ./app.o
@@ -1664,6 +1841,7 @@ LOAD linker stubs
  .comment       0x00000045       0x46 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.o
  .comment       0x00000045       0x46 ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_init.o
  .comment       0x00000045       0x46 ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_process_action.o
+ .comment       0x00000045       0x46 ./touchslider/caplesense.o
 
 .debug_line_str
                 0x00000000      0x1b0
@@ -1675,7 +1853,7 @@ LOAD linker stubs
                 0x000001a4        0xc c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
                                  0xc9 (size before relaxing)
 
-.debug_info     0x00000000     0xbb09
+.debug_info     0x00000000     0xdbaf
  .debug_info    0x00000000       0x50 ./app.o
  .debug_info    0x00000050       0xa1 ./main.o
  .debug_info    0x000000f1       0x86 ./autogen/sl_board_default_init.o
@@ -1701,8 +1879,9 @@ LOAD linker stubs
  .debug_info    0x0000ab13      0xebc ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.o
  .debug_info    0x0000b9cf       0xa7 ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_init.o
  .debug_info    0x0000ba76       0x93 ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_process_action.o
+ .debug_info    0x0000bb09     0x20a6 ./touchslider/caplesense.o
 
-.debug_abbrev   0x00000000     0x2cf5
+.debug_abbrev   0x00000000     0x3175
  .debug_abbrev  0x00000000       0x4a ./app.o
  .debug_abbrev  0x0000004a       0x5d ./main.o
  .debug_abbrev  0x000000a7       0x46 ./autogen/sl_board_default_init.o
@@ -1728,8 +1907,9 @@ LOAD linker stubs
  .debug_abbrev  0x0000280b      0x432 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.o
  .debug_abbrev  0x00002c3d       0x5c ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_init.o
  .debug_abbrev  0x00002c99       0x5c ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_process_action.o
+ .debug_abbrev  0x00002cf5      0x480 ./touchslider/caplesense.o
 
-.debug_aranges  0x00000000      0x940
+.debug_aranges  0x00000000      0x9b8
  .debug_aranges
                 0x00000000       0x28 ./app.o
  .debug_aranges
@@ -1780,8 +1960,10 @@ LOAD linker stubs
                 0x00000900       0x20 ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_init.o
  .debug_aranges
                 0x00000920       0x20 ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_process_action.o
+ .debug_aranges
+                0x00000940       0x78 ./touchslider/caplesense.o
 
-.debug_ranges   0x00000000      0xd60
+.debug_ranges   0x00000000      0xe10
  .debug_ranges  0x00000000       0x18 ./app.o
  .debug_ranges  0x00000018       0x10 ./main.o
  .debug_ranges  0x00000028       0x10 ./autogen/sl_board_default_init.o
@@ -1807,8 +1989,9 @@ LOAD linker stubs
  .debug_ranges  0x00000be0      0x160 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.o
  .debug_ranges  0x00000d40       0x10 ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_init.o
  .debug_ranges  0x00000d50       0x10 ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_process_action.o
+ .debug_ranges  0x00000d60       0xb0 ./touchslider/caplesense.o
 
-.debug_line     0x00000000     0x7dc3
+.debug_line     0x00000000     0x8634
  .debug_line    0x00000000       0x4c ./app.o
  .debug_line    0x0000004c       0xe9 ./main.o
  .debug_line    0x00000135       0x55 ./autogen/sl_board_default_init.o
@@ -1834,8 +2017,9 @@ LOAD linker stubs
  .debug_line    0x000073ce      0x866 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.o
  .debug_line    0x00007c34       0xc3 ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_init.o
  .debug_line    0x00007cf7       0xcc ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_process_action.o
+ .debug_line    0x00007dc3      0x871 ./touchslider/caplesense.o
 
-.debug_str      0x00000000     0x37c2
+.debug_str      0x00000000     0x4a0c
  .debug_str     0x00000000      0x107 ./app.o
                                 0x123 (size before relaxing)
  .debug_str     0x00000107       0x37 ./main.o
@@ -1886,8 +2070,10 @@ LOAD linker stubs
                                 0x1a0 (size before relaxing)
  .debug_str     0x00003778       0x4a ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_process_action.o
                                 0x1cd (size before relaxing)
+ .debug_str     0x000037c2     0x124a ./touchslider/caplesense.o
+                               0x1d84 (size before relaxing)
 
-.debug_frame    0x00000000     0x1758
+.debug_frame    0x00000000     0x18ac
  .debug_frame   0x00000000       0x30 ./app.o
  .debug_frame   0x00000030       0x28 ./main.o
  .debug_frame   0x00000058       0x20 ./autogen/sl_board_default_init.o
@@ -1913,14 +2099,15 @@ LOAD linker stubs
  .debug_frame   0x000013c0      0x128 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.o
  .debug_frame   0x000014e8       0x2c ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_init.o
  .debug_frame   0x00001514       0x2c ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_process_action.o
- .debug_frame   0x00001540       0x2c c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x0000156c       0x34 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
- .debug_frame   0x000015a0       0x28 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-exit.o)
- .debug_frame   0x000015c8      0x144 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-findfp.o)
- .debug_frame   0x0000170c       0x20 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-memset.o)
- .debug_frame   0x0000172c       0x2c c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-init.o)
+ .debug_frame   0x00001540      0x154 ./touchslider/caplesense.o
+ .debug_frame   0x00001694       0x2c c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x000016c0       0x34 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x000016f4       0x28 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-exit.o)
+ .debug_frame   0x0000171c      0x144 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .debug_frame   0x00001860       0x20 c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-memset.o)
+ .debug_frame   0x00001880       0x2c c:/siliconlabs/simplicitystudio/v5/developer/toolchains/gnu_arm/12.2.rel1_2023.7/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7-m/nofp\libc_nano.a(libc_a-init.o)
 
-.debug_loc      0x00000000     0x6614
+.debug_loc      0x00000000     0x6abb
  .debug_loc     0x00000000       0x20 ./main.o
  .debug_loc     0x00000020       0x20 ./autogen/sl_device_init_clocks.o
  .debug_loc     0x00000040       0x79 ./autogen/sl_event_handler.o
@@ -1944,3 +2131,4 @@ LOAD linker stubs
  .debug_loc     0x000060a7      0x515 ./gecko_sdk_4.4.6/platform/service/sleeptimer/src/sl_sleeptimer_hal_rtc.o
  .debug_loc     0x000065bc       0x2c ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_init.o
  .debug_loc     0x000065e8       0x2c ./gecko_sdk_4.4.6/platform/service/system/src/sl_system_process_action.o
+ .debug_loc     0x00006614      0x4a7 ./touchslider/caplesense.o

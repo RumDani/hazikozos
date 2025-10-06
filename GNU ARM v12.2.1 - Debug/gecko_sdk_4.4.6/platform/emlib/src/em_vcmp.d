@@ -1,7 +1,7 @@
-segmentlcd_individual.o: ../segmentlcd_individual.c \
+gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.o: \
+ ../gecko_sdk_4.4.6/platform/emlib/src/em_vcmp.c \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\toolchain\inc/sl_gcc_preinclude.h \
- ../segmentlcd_individual.h \
- C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_lcd.h \
+ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_vcmp.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/em_device.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg990f1024.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/core_cm3.h \
@@ -56,10 +56,10 @@ segmentlcd_individual.o: ../segmentlcd_individual.c \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg_dmactrl.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg_uart.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg_af_ports.h \
- C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg_af_pins.h
+ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg_af_pins.h \
+ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_assert.h
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\toolchain\inc/sl_gcc_preinclude.h:
-../segmentlcd_individual.h:
-C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_lcd.h:
+C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_vcmp.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/em_device.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg990f1024.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/core_cm3.h:
@@ -115,3 +115,4 @@ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLab
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg_uart.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg_af_ports.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg_af_pins.h:
+C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_assert.h:
