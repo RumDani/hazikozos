@@ -15,6 +15,14 @@
  *
  ******************************************************************************/
 
+
+/* Header for the SegmentLCD driver extension*/
+#include "segmentlcd_individual.h"
+#include "segmentlcd.h"
+ /* Header for device peripheral description*/
+#include "em_device.h"
+#include "em_cmu.h"
+
 /***************************************************************************//**
  * Initialize application.
  ******************************************************************************/
