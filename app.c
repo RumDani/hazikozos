@@ -23,6 +23,35 @@
 #include "em_device.h"
 #include "em_cmu.h"
 
+/*
+ *      --- 0 (a) ---
+ *   |              |
+ *   |5 (f)         |1 (b)
+ *   |              |
+ *    --- 6 (g) ---
+ *   |              |
+ *   |4 (e)         |2 (c)
+ *   |              |
+ *    --- 3 (d) ---
+ */
+SegmentLCD_UpperCharSegments_TypeDef upperCharSegments[SEGMENT_LCD_NUM_OF_UPPER_CHARS]; //felső LCD-hez
+/*
+ *    --------- 0,a --------
+ *
+ *   |     \7,h  |8,j  /    |
+ *   |5,f   \    |    /9,k  |1,b
+ *   |       \   |   /      |
+ *
+ *    --- 6,g --   -- 10,m --
+ *
+ *   |      /    |    \11,n |
+ *   |4,e  /13,q |12,p \    |2,c
+ *   |    /      |      \   |
+ *
+ *    --------- 3,d --------*/
+
+SegmentLCD_LowerCharSegments_TypeDef lowerCharSegments[SEGMENT_LCD_NUM_OF_LOWER_CHARS]; //alsó LCD-hez
+
 /***************************************************************************//**
  * Initialize application.
  ******************************************************************************/
@@ -31,11 +60,29 @@ void app_init(void)
   SegmentLCD_Init(false);  //segmentlcd.c-ből a függvény --> ne használjon boostot
 
 
+
+
 }
 
 /***************************************************************************//**
- * App ticking function.
+ * App ticking function. -- > T időnként meghívódik
  ******************************************************************************/
 void app_process_action(void)
 {
+  //Le kell törölni először  szegmens-t
+  for (uint8_t i = 0; i < SEGMENT_LCD_NUM_OF_LOWER_CHARS; i++)  //végigmegy az össezs szegmensen
+    {
+     for (uint8_t n = 0; n < 15; n++)   //ez megy végig egy szegmensen belül a-tól q-ig és raw-ra állítja -->
+       {
+        lowerCharSegments[i].raw = 1 << n;
+     }
+  }
+
+
+  lowerCharSegments[/*slidernek a poziciója kell ide*/].d = 1;
+
+    // rajzolja az alsó LCD - t
+    SegmentLCD_LowerSegments(lowerCharSegments);
+    //Késleltet(10);
+
 }
