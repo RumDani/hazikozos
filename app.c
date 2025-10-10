@@ -22,6 +22,7 @@
  /* Header for device peripheral description*/
 #include "em_device.h"
 #include "em_cmu.h"
+#include <string.h>
 
 /*
  *      --- 0 (a) ---
@@ -60,14 +61,12 @@ void app_init(void)
   SegmentLCD_Init(false);  //segmentlcd.c-ből a függvény --> ne használjon boostot
 
 
-
-
 }
 
 /***************************************************************************//**
  * App ticking function. -- > T időnként meghívódik
  ******************************************************************************/
-void app_process_action(void)
+/*void app_process_action(void)
 {
   //Le kell törölni először  szegmens-t
   for (uint8_t i = 0; i < SEGMENT_LCD_NUM_OF_LOWER_CHARS; i++)  //végigmegy az össezs szegmensen
@@ -77,12 +76,54 @@ void app_process_action(void)
         lowerCharSegments[i].raw = 1 << n;
      }
   }
+*/
 
+  //*****************************ANIMÁCIOHOZ*****************************************************-
+  static const char *szoveg = "ADJA MEG A NEHEZSEGI SZINTET";
+  static char kijelzo[9] = "";
+  static uint32_t start_index = 0;
+  static int karakterdelaycounter =0;
 
-  lowerCharSegments[/*slidernek a poziciója kell ide*/].d = 1;
+  void app_process_action(void)
+  {
+
+   karakterdelaycounter++; //kesleltete4s miatt
+
+   size_t szoveghossz = strlen(szoveg);
+    if(karakterdelaycounter % 35 == 0)  //minden 35.lefutasra hajtodik vegre
+    {
+      for(uint8_t i = 0; i < 8; i++)
+      {
+        if((start_index + i) < szoveghossz)
+        {
+          kijelzo[i] = szoveg[start_index + i];
+        }
+        else
+        {
+          kijelzo[i] = ' ';
+        }
+      }
+      kijelzo[8] = '\0';
+
+      start_index++;
+      if (start_index >= szoveghossz)
+      {
+        start_index = 0;
+      }
+
+      karakterdelaycounter = 0;
+    }
+
+    SegmentLCD_Write(kijelzo);
+  }
+  //void SegmentLCD_Write(const char *string) --> szöveg kiiratáa LCD-re
+
+  //SegmentLCD_Write(kijelzo);s
+
+  //************************************************************************************
+
+  //lowerCharSegments[/*slidernek a poziciója kell ide*/ 0].d = 1;
 
     // rajzolja az alsó LCD - t
-    SegmentLCD_LowerSegments(lowerCharSegments);
+    //SegmentLCD_LowerSegments(lowerCharSegments);
     //Késleltet(10);
-
-}

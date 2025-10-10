@@ -1,7 +1,5 @@
-app.o: ../app.c \
+segmentlcd.o: ../segmentlcd.c \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\toolchain\inc/sl_gcc_preinclude.h \
- ../segmentlcd_individual.h ../segmentlcd.h ../segmentlcdconfig.h \
- C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_lcd.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/em_device.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg990f1024.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/core_cm3.h \
@@ -70,12 +68,11 @@ app.o: ../app.c \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_gpio.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_enum.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_status.h \
- C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/sli_em_cmu.h
+ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/sli_em_cmu.h \
+ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_gpio.h \
+ ../segmentlcd.h ../segmentlcdconfig.h \
+ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_lcd.h
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\toolchain\inc/sl_gcc_preinclude.h:
-../segmentlcd_individual.h:
-../segmentlcd.h:
-../segmentlcdconfig.h:
-C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_lcd.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/em_device.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg990f1024.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/core_cm3.h:
@@ -145,3 +142,7 @@ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_gpio
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_enum.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_status.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/sli_em_cmu.h:
+C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_gpio.h:
+../segmentlcd.h:
+../segmentlcdconfig.h:
+C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_lcd.h:
