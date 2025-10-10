@@ -24,6 +24,9 @@
 #include "em_cmu.h"
 #include <string.h>
 
+#include "caplesense.h"
+#include "caplesenseconfig.h"
+
 /*
  *      --- 0 (a) ---
  *   |              |
@@ -60,6 +63,7 @@ void app_init(void)
 {
   SegmentLCD_Init(false);  //segmentlcd.c-ből a függvény --> ne használjon boostot
 
+  CAPLESENSE_Init(false); //Initializes the capacative sense system without LESENSE. -- false
 
 }
 
@@ -79,7 +83,7 @@ void app_init(void)
 */
 
   //*****************************ANIMÁCIOHOZ*****************************************************-
-  static const char *szoveg = "ADJA MEG A NEHEZSEGI SZINTET";
+  static const char *szoveg = "ALLITSD BE A NEHEZSEGI SZINTET";
   static char kijelzo[9] = "";
   static uint32_t start_index = 0;
   static int karakterdelaycounter =0;
@@ -115,15 +119,55 @@ void app_init(void)
     }
 
     SegmentLCD_Write(kijelzo);
-  }
-  //void SegmentLCD_Write(const char *string) --> szöveg kiiratáa LCD-re
 
-  //SegmentLCD_Write(kijelzo);s
 
   //************************************************************************************
 
+  //**************A KAPACITIV ERZEKELO HELYZETE**************************************-*
+
+    static int sliderPos = -1;
+    static int elozo_leosztott = -1;
+    static int utolso_ervenyes_pos = 0;  // Utolso érvényes pozicio megtarására
+
+    // get slider position
+    sliderPos = CAPLESENSE_getSliderPosition();
+
+    // Ha van érvényes pozíció (érintés), frissítjük az utolsó érvényes értéket
+    if (sliderPos > 0)
+      {
+        utolso_ervenyes_pos = sliderPos;
+      }
+
+    // Mindig az utolsó érvényes pozíciót használjuk
+    // sliderPos: 0-64 → leosztas: 0-7
+    static int leosztott;
+    leosztott = (utolso_ervenyes_pos * 8) / 64 + 1;
+
+    // Korlátozás
+    if (leosztott > 7) leosztott = 7;
+    if (leosztott < 0) leosztott = 0;
+
+    if (leosztott != elozo_leosztott)
+    {
+        if (leosztott > elozo_leosztott)
+        {
+            // Új gyűrűk bekapcsolása
+            for(int i = elozo_leosztott; i < leosztott; i++)
+            {
+                SegmentLCD_ARing(i + 1, 1);
+            }
+        }
+        else
+        {
+            // Extra gyűrűk kikapcsolása
+            for(int i = leosztott; i < elozo_leosztott; i++)
+            {
+                SegmentLCD_ARing(i + 1, 0);
+            }
+        }
+        elozo_leosztott = leosztott;
+    }
+
   //lowerCharSegments[/*slidernek a poziciója kell ide*/ 0].d = 1;
 
-    // rajzolja az alsó LCD - t
-    //SegmentLCD_LowerSegments(lowerCharSegments);
-    //Késleltet(10);
+  }
