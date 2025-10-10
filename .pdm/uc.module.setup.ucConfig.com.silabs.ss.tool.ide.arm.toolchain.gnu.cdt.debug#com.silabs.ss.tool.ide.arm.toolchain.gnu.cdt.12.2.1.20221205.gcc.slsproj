@@ -5,8 +5,8 @@
     <file name="sl_device_init_lfxo_config.h" generated="true" linked="false"/>
     <file name="sl_board_control_config.h" generated="true" linked="false"/>
     <file name="sl_device_init_hfxo_config.h" generated="true" linked="false"/>
-    <file name="emlib_core_debug_config.h" generated="true" linked="false"/>
     <file name="sl_memlcd_custom_config.h" generated="true" linked="false"/>
+    <file name="emlib_core_debug_config.h" generated="true" linked="false"/>
     <file name="sl_sleeptimer_config.h" generated="true" linked="false"/>
   </folder>
   <includePath uri="studio:/project/config"/>

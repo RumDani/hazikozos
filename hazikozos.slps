@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <model:MDescriptors xmlns:model="http://www.silabs.com/ss/Studio.ecore">
-  <descriptors name="hazifeladatkozos">
-    <properties key="projectCommon.sdkId" value="com.silabs.sdk.stack.super:4.4.6._1740995433"/>
+  <descriptors name="hazikozos">
+    <properties key="projectCommon.sdkId" value="com.silabs.sdk.stack.super:4.4.6._-769737450"/>
     <properties key="universalConfig.relativeWorkspacePath" value="..\hazifeladatkozos.slcw"/>
     <properties key="universalConfig.generationDirectory" value=""/>
     <properties key="universalConfig.toolchainCompatibility" value="iar gcc"/>
