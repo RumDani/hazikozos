@@ -19,7 +19,6 @@ SUBDIRS := \
 . \
 autogen \
 gecko_sdk_4.4.6/hardware/board/src \
-gecko_sdk_4.4.6/hardware/driver/memlcd/src/memlcd_custom \
 gecko_sdk_4.4.6/platform/Device/SiliconLabs/EFM32GG/Source \
 gecko_sdk_4.4.6/platform/common/src \
 gecko_sdk_4.4.6/platform/common/toolchain/src \
