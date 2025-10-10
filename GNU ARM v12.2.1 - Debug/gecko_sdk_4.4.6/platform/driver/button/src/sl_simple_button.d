@@ -1,13 +1,19 @@
-app.o: ../app.c \
+gecko_sdk_4.4.6/platform/driver/button/src/sl_simple_button.o: \
+ ../gecko_sdk_4.4.6/platform/driver/button/src/sl_simple_button.c \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\toolchain\inc/sl_gcc_preinclude.h \
- ../segmentlcd_individual.h ../segmentlcd.h ../segmentlcdconfig.h \
- C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_lcd.h \
+ C:\beagyszoftver2025\hazifeladatkozos/sl_simple_button.h \
+ C:\beagyszoftver2025\hazifeladatkozos/sl_button.h \
+ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_common.h \
+ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_assert.h \
+ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/cmsis_compiler.h \
+ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/cmsis_gcc.h \
+ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_status.h \
+ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_gpio.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/em_device.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg990f1024.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/core_cm3.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/cmsis_version.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/cmsis_compiler.h \
- C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/cmsis_gcc.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/mpu_armv7.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/system_efm32gg.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg_dma_ch.h \
@@ -57,34 +63,33 @@ app.o: ../app.c \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg_uart.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg_af_ports.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg_af_pins.h \
- C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_cmu.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_assert.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_bus.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_core.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_core_generic.h \
- C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_common.h \
- C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_assert.h \
  C:\beagyszoftver2025\hazifeladatkozos\autogen/sl_component_catalog.h \
  C:\beagyszoftver2025\hazifeladatkozos\config/emlib_core_debug_config.h \
+ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_enum.h \
+ C:\beagyszoftver2025\hazifeladatkozos\config/sl_simple_button_config.h \
+ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emdrv\gpiointerrupt\inc/gpiointerrupt.h \
+ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_cmu.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_cmu_compat.h \
  C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_gpio.h \
- C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_enum.h \
- C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_status.h \
- C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/sli_em_cmu.h \
- ../caplesense.h ../caplesenseconfig.h \
- C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_lesense.h \
- C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_gpio.h
+ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/sli_em_cmu.h
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\toolchain\inc/sl_gcc_preinclude.h:
-../segmentlcd_individual.h:
-../segmentlcd.h:
-../segmentlcdconfig.h:
-C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_lcd.h:
+C:\beagyszoftver2025\hazifeladatkozos/sl_simple_button.h:
+C:\beagyszoftver2025\hazifeladatkozos/sl_button.h:
+C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_common.h:
+C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_assert.h:
+C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/cmsis_compiler.h:
+C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/cmsis_gcc.h:
+C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_status.h:
+C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_gpio.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/em_device.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg990f1024.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/core_cm3.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/cmsis_version.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/cmsis_compiler.h:
-C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/cmsis_gcc.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\CMSIS\Core\Include/mpu_armv7.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/system_efm32gg.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg_dma_ch.h:
@@ -134,21 +139,16 @@ C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLab
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg_uart.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg_af_ports.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\Device\SiliconLabs\EFM32GG\Include/efm32gg_af_pins.h:
-C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_cmu.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_assert.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_bus.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_core.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_core_generic.h:
-C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_common.h:
-C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_assert.h:
 C:\beagyszoftver2025\hazifeladatkozos\autogen/sl_component_catalog.h:
 C:\beagyszoftver2025\hazifeladatkozos\config/emlib_core_debug_config.h:
+C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_enum.h:
+C:\beagyszoftver2025\hazifeladatkozos\config/sl_simple_button_config.h:
+C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emdrv\gpiointerrupt\inc/gpiointerrupt.h:
+C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_cmu.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_cmu_compat.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_gpio.h:
-C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_enum.h:
-C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\common\inc/sl_status.h:
 C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/sli_em_cmu.h:
-../caplesense.h:
-../caplesenseconfig.h:
-C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_lesense.h:
-C:\beagyszoftver2025\hazifeladatkozos\gecko_sdk_4.4.6\platform\emlib\inc/em_gpio.h:

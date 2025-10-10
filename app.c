@@ -27,6 +27,12 @@
 #include "caplesense.h"
 #include "caplesenseconfig.h"
 
+#include "em_gpio.h"
+#include "em_cmu.h"
+
+#define BUTTON_PORT gpioPortF
+#define BUTTON_PIN  6
+
 /*
  *      --- 0 (a) ---
  *   |              |
@@ -64,6 +70,13 @@ void app_init(void)
   SegmentLCD_Init(false);  //segmentlcd.c-ből a függvény --> ne használjon boostot
 
   CAPLESENSE_Init(false); //Initializes the capacative sense system without LESENSE. -- false
+
+  //void CMU_ClockEnable(CMU_Clock_TypeDef clock, bool enable)
+  CMU_ClockEnable(cmuClock_GPIO, true);
+
+  // //void GPIO_PinModeSet(GPIO_Port_TypeDef port,unsigned int pin,GPIO_Mode_TypeDef mode,unsigned int out)
+  GPIO_PinModeSet(gpioPortF, 7, gpioModePushPull, 1);
+  GPIO_PinModeSet(gpioPortE, 0, gpioModePushPull, 0);  // LED kiindulási állapot: KI
 
 }
 
@@ -170,4 +183,21 @@ void app_init(void)
 
   //lowerCharSegments[/*slidernek a poziciója kell ide*/ 0].d = 1;
 
+    //*********************GOMB***************************************************-//
+
+    static bool last_button_state = true;
+    bool current_button_state = (GPIO_PinInGet(gpioPortF, 7) == 0);
+
+    // Debug - mindig ellenőrizd a gomb állapotát
+    if (current_button_state) {
+        GPIO_PinOutSet(gpioPortE, 0);  // LED be ha gomb nyomva
+    } else {
+        GPIO_PinOutClear(gpioPortE, 0); // LED ki ha gomb nincs nyomva
+    }
+
+    if (current_button_state && !last_button_state) {
+        SegmentLCD_Number(utolso_ervenyes_pos);
+    }
+
+    last_button_state = current_button_state;
   }
