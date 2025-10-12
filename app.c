@@ -30,6 +30,8 @@
 #include "em_gpio.h"
 #include "em_cmu.h"
 
+#include <sl_udelay.h>
+
 #define BUTTON_PORT gpioPortF
 #define BUTTON_PIN  6
 
@@ -75,25 +77,15 @@ void app_init(void)
   CMU_ClockEnable(cmuClock_GPIO, true);
 
   // //void GPIO_PinModeSet(GPIO_Port_TypeDef port,unsigned int pin,GPIO_Mode_TypeDef mode,unsigned int out)
-  GPIO_PinModeSet(gpioPortF, 7, gpioModePushPull, 1);
-  GPIO_PinModeSet(gpioPortE, 0, gpioModePushPull, 0);  // LED kiindulási állapot: KI
+  GPIO_PinModeSet(gpioPortB, 9, gpioModeInput, 1); //gomb init
+  GPIO_PinModeSet(gpioPortE, 2, gpioModePushPull, 0);  // LED kiindulási állapot: KI
 
 }
 
 /***************************************************************************//**
  * App ticking function. -- > T időnként meghívódik
  ******************************************************************************/
-/*void app_process_action(void)
-{
-  //Le kell törölni először  szegmens-t
-  for (uint8_t i = 0; i < SEGMENT_LCD_NUM_OF_LOWER_CHARS; i++)  //végigmegy az össezs szegmensen
-    {
-     for (uint8_t n = 0; n < 15; n++)   //ez megy végig egy szegmensen belül a-tól q-ig és raw-ra állítja -->
-       {
-        lowerCharSegments[i].raw = 1 << n;
-     }
-  }
-*/
+
 
   //*****************************ANIMÁCIOHOZ*****************************************************-
   static const char *szoveg = "ALLITSD BE A NEHEZSEGI SZINTET";
@@ -186,18 +178,20 @@ void app_init(void)
     //*********************GOMB***************************************************-//
 
     static bool last_button_state = true;
-    bool current_button_state = (GPIO_PinInGet(gpioPortF, 7) == 0);
+    bool current_button_state = (GPIO_PinInGet(gpioPortB, 9) == 0); // ki van e kapcsolva
 
-    // Debug - mindig ellenőrizd a gomb állapotát
-    if (current_button_state) {
-        GPIO_PinOutSet(gpioPortE, 0);  // LED be ha gomb nyomva
+    // Led lekezelésére
+    if (current_button_state)
+    {
+        GPIO_PinOutSet(gpioPortE, 2);  // LED be ha gomb nyomva
     } else {
-        GPIO_PinOutClear(gpioPortE, 0); // LED ki ha gomb nincs nyomva
+        GPIO_PinOutClear(gpioPortE, 2); // LED ki ha gomb nincs nyomva
     }
-
-    if (current_button_state && !last_button_state) {
-        SegmentLCD_Number(utolso_ervenyes_pos);
-    }
+    //
+    if (current_button_state && !last_button_state)
+      {
+        SegmentLCD_Number(utolso_ervenyes_pos); //0-48-ig
+      }
 
     last_button_state = current_button_state;
   }
