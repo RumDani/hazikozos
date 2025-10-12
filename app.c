@@ -93,9 +93,13 @@ void app_init(void)
   static uint32_t start_index = 0;
   static int karakterdelaycounter =0;
 
+  static bool animacio_aktiv = true;
+
   void app_process_action(void)
   {
 
+    if(animacio_aktiv)
+      {
    karakterdelaycounter++; //kesleltete4s miatt
 
    size_t szoveghossz = strlen(szoveg);
@@ -125,7 +129,7 @@ void app_init(void)
 
     SegmentLCD_Write(kijelzo);
 
-
+      }
   //************************************************************************************
 
   //**************A KAPACITIV ERZEKELO HELYZETE**************************************-*
@@ -177,21 +181,49 @@ void app_init(void)
 
     //*********************GOMB***************************************************-//
 
-    static bool last_button_state = true;
-    bool current_button_state = (GPIO_PinInGet(gpioPortB, 9) == 0); // ki van e kapcsolva
+    bool gomballapot = (GPIO_PinInGet(gpioPortB, 9) == 0); // gomb állapota aktiv low
 
     // Led lekezelésére
-    if (current_button_state)
-    {
-        GPIO_PinOutSet(gpioPortE, 2);  // LED be ha gomb nyomva
-    } else {
-        GPIO_PinOutClear(gpioPortE, 2); // LED ki ha gomb nincs nyomva
-    }
-    //
-    if (current_button_state && !last_button_state)
+    if (gomballapot)
       {
+        GPIO_PinOutSet(gpioPortE, 2);  // LED be ha gomb nyomva
         SegmentLCD_Number(utolso_ervenyes_pos); //0-48-ig
       }
+    else
+      {
+        GPIO_PinOutClear(gpioPortE, 2); // LED ki ha gomb nincs nyomva
+      }
 
-    last_button_state = current_button_state;
+    //*********************************************************************************//
+
+    //**********Képernyő törlése- nehézségi szint kiiratása , felkészülni, rajt****************-//
+    if (gomballapot)
+    {
+        sl_udelay_wait(10000000);
+        animacio_aktiv = false;
+        SegmentLCD_AllOff();
+        SegmentLCD_AlphaNumberOff();
+
+        // 3
+        SegmentLCD_Write("   3   ");
+        sl_udelay_wait(100000000);
+
+        SegmentLCD_AllOff();
+        SegmentLCD_Write("   2   ");
+        sl_udelay_wait(100000000);
+
+        SegmentLCD_AllOff();
+        SegmentLCD_Write("   1   ");
+        sl_udelay_wait(100000000);
+
+        SegmentLCD_AllOff();
+        SegmentLCD_Write(" START ");
+        sl_udelay_wait(100000000);
+        SegmentLCD_AllOff();
+        SegmentLCD_AlphaNumberOff();
+
+    }
+//*******************************************************************-//
+//*******************-Jatek kezdete*********************************-*//
+
   }
