@@ -88,7 +88,7 @@ void app_init(void)
 
 
   //*****************************ANIMÁCIOHOZ*****************************************************-
-  static const char *szoveg = "ALLITSD BE A NEHEZSEGI SZINTET";
+  static const char *szoveg = "SET LEVEL";
   static char kijelzo[9] = "";
   static uint32_t start_index = 0;
   static int karakterdelaycounter =0;
@@ -100,11 +100,12 @@ void app_init(void)
 
     if(animacio_aktiv)
       {
-   karakterdelaycounter++; //kesleltete4s miatt
+          karakterdelaycounter++; //kesleltete4s miatt
 
    size_t szoveghossz = strlen(szoveg);
-    if(karakterdelaycounter % 35 == 0)  //minden 35.lefutasra hajtodik vegre
+    if(karakterdelaycounter % 40 == 0)  //minden 40.lefutasra hajtodik vegre
     {
+
       for(uint8_t i = 0; i < 8; i++)
       {
         if((start_index + i) < szoveghossz)
@@ -148,9 +149,9 @@ void app_init(void)
       }
 
     // Mindig az utolsó érvényes pozíciót használjuk
-    // sliderPos: 0-64 → leosztas: 0-7
+
     static int leosztott;
-    leosztott = (utolso_ervenyes_pos * 8) / 64 + 1;
+    leosztott = (utolso_ervenyes_pos * 8) / 64 +1;
 
     // Korlátozás
     if (leosztott > 7) leosztott = 7;
@@ -177,8 +178,6 @@ void app_init(void)
         elozo_leosztott = leosztott;
     }
 
-  //lowerCharSegments[/*slidernek a poziciója kell ide*/ 0].d = 1;
-
     //*********************GOMB***************************************************-//
     //Erdemes lenne megszakítást (interruptot)!!!!!!!!!
 
@@ -188,7 +187,7 @@ void app_init(void)
     if (gomballapot)
       {
         GPIO_PinOutSet(gpioPortE, 2);  // LED be ha gomb nyomva
-        SegmentLCD_Number(utolso_ervenyes_pos); //0-48-ig
+        SegmentLCD_Number(leosztott +1); //0-48-ig
       }
     else
       {
@@ -205,7 +204,6 @@ void app_init(void)
         SegmentLCD_AllOff();
         SegmentLCD_AlphaNumberOff();
 
-        // 3
         SegmentLCD_Write("   3   ");
         sl_udelay_wait(100000000);
 
