@@ -180,6 +180,7 @@ void app_init(void)
   //lowerCharSegments[/*slidernek a poziciója kell ide*/ 0].d = 1;
 
     //*********************GOMB***************************************************-//
+    //Erdemes lenne megszakítást (interruptot)!!!!!!!!!
 
     bool gomballapot = (GPIO_PinInGet(gpioPortB, 9) == 0); // gomb állapota aktiv low
 
