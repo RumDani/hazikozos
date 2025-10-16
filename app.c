@@ -10,16 +10,13 @@
  * software is governed by the terms of Silicon Labs Master Software License
  * Agreement (MSLA) available at
  * www.silabs.com/about-us/legal/master-software-license-agreement. This
- * software is distributed to you in Source Code format and is governed by the
+ * software is distributed in Source Code format and is governed by the
  * sections of the MSLA applicable to Source Code.
  *
  ******************************************************************************/
 
-
-/* Header for the SegmentLCD driver extension*/
 #include "segmentlcd_individual.h"
 #include "segmentlcd.h"
- /* Header for device peripheral description*/
 #include "em_device.h"
 #include "em_cmu.h"
 #include <string.h>
@@ -64,77 +61,117 @@ SegmentLCD_UpperCharSegments_TypeDef upperCharSegments[SEGMENT_LCD_NUM_OF_UPPER_
 
 SegmentLCD_LowerCharSegments_TypeDef lowerCharSegments[SEGMENT_LCD_NUM_OF_LOWER_CHARS]; //alsó LCD-hez
 
+//lefutott-e a startig
+volatile bool starting = false;
+
+//gomb interrupthoz
+volatile bool gomballapot = false;
+
+// ************************** INTERRUPT HANDLER *****************************
+void GPIO_ODD_IRQHandler(void)
+{
+    uint32_t flags = GPIO_IntGet();
+    GPIO_IntClear(flags);
+
+    if (flags & (1 << 9))  // PB9
+    {
+        gomballapot = true;  // jelezzük a fő loop-nak
+    }
+}
+
+// *****************************************************************************
+
+
+
 /***************************************************************************//**
  * Initialize application.
  ******************************************************************************/
 void app_init(void)
 {
-  SegmentLCD_Init(false);  //segmentlcd.c-ből a függvény --> ne használjon boostot
+    SegmentLCD_Init(false);  //segmentlcd.c-ből a függvény --> ne használjon boostot
+    CAPLESENSE_Init(false);  //Initializes the capacative sense system without LESENSE. -- false
 
-  CAPLESENSE_Init(false); //Initializes the capacative sense system without LESENSE. -- false
+    //void CMU_ClockEnable(CMU_Clock_TypeDef clock, bool enable)
+    CMU_ClockEnable(cmuClock_GPIO, true);
 
-  //void CMU_ClockEnable(CMU_Clock_TypeDef clock, bool enable)
-  CMU_ClockEnable(cmuClock_GPIO, true);
+    // //void GPIO_PinModeSet(GPIO_Port_TypeDef port,unsigned int pin,GPIO_Mode_TypeDef mode,unsigned int out)
+    GPIO_PinModeSet(gpioPortB, 9, gpioModeInputPull, 1); //gomb init
+    GPIO_PinModeSet(gpioPortE, 2, gpioModePushPull, 0);  // LED kiindulási állapot: KI
 
-  // //void GPIO_PinModeSet(GPIO_Port_TypeDef port,unsigned int pin,GPIO_Mode_TypeDef mode,unsigned int out)
-  GPIO_PinModeSet(gpioPortB, 9, gpioModeInput, 1); //gomb init
-  GPIO_PinModeSet(gpioPortE, 2, gpioModePushPull, 0);  // LED kiindulási állapot: KI
+    GPIO_PinModeSet(gpioPortE, 3, gpioModePushPull, 0);
 
+    //*******************************gomb interrupt***************************
+    /*1. Fel kell konfigurálni a kérdéses perifériát, hogy kérjen megszakítást egy adott esemény bekövetkeztekor*/
+
+    // NVIC engedélyezés NVIC_EnableIRQ --> core_cm3.h-ból
+    //Az egyes NVIC IT vonalak elnevezése az efm32gg990f1024.h fájlban találhatók.
+    NVIC_EnableIRQ(GPIO_ODD_IRQn); // javítva: PB9 páratlan pin, ODD IRQ
+
+    // 3. Interrupt konfigurálása (falling edge = gombnyomás)
+    /*
+     * void GPIO_ExtIntConfig(GPIO_Port_TypeDef port,
+                  unsigned int pin,
+                  unsigned int intNo,
+                  bool risingEdge,
+                  bool fallingEdge,
+                  bool enable)
+     */ //--> em_gpio.h
+    GPIO_ExtIntConfig(gpioPortB, 9, 9, false, true, true);  // PB9, falling edge, enabled
+
+    //*************************************************************************
 }
+
 
 /***************************************************************************//**
  * App ticking function. -- > T időnként meghívódik
  ******************************************************************************/
 
 
-  //*****************************ANIMÁCIOHOZ*****************************************************-
-  static const char *szoveg = "SET LEVEL";
-  static char kijelzo[9] = "";
-  static uint32_t start_index = 0;
-  static int karakterdelaycounter =0;
+//*****************************ANIMÁCIOHOZ*****************************************************-
+static const char *szoveg = "SET LEVEL";
+static char kijelzo[9] = "";
+static uint32_t start_index = 0;
+static int karakterdelaycounter =0;
 
-  static bool animacio_aktiv = true;
+static bool animacio_aktiv = true;
 
-  void app_process_action(void)
-  {
-
+void app_process_action(void)
+{
+  if(starting == false){
     if(animacio_aktiv)
-      {
-          karakterdelaycounter++; //kesleltete4s miatt
-
-   size_t szoveghossz = strlen(szoveg);
-    if(karakterdelaycounter % 40 == 0)  //minden 40.lefutasra hajtodik vegre
     {
+        karakterdelaycounter++; //kesleltetes miatt
 
-      for(uint8_t i = 0; i < 8; i++)
-      {
-        if((start_index + i) < szoveghossz)
+        size_t szoveghossz = strlen(szoveg);
+        if(karakterdelaycounter % 40 == 0)  //minden 40.lefutasra hajtodik vegre
         {
-          kijelzo[i] = szoveg[start_index + i];
-        }
-        else
-        {
-          kijelzo[i] = ' ';
-        }
-      }
-      kijelzo[8] = '\0';
+            for(uint8_t i = 0; i < 8; i++)
+            {
+                if((start_index + i) < szoveghossz)
+                {
+                    kijelzo[i] = szoveg[start_index + i];
+                }
+                else
+                {
+                    kijelzo[i] = ' ';
+                }
+            }
+            kijelzo[8] = '\0';
 
-      start_index++;
-      if (start_index >= szoveghossz)
-      {
-        start_index = 0;
-      }
+            start_index++;
+            if (start_index >= szoveghossz)
+            {
+                start_index = 0;
+            }
 
-      karakterdelaycounter = 0;
+            karakterdelaycounter = 0;
+        }
+
+        SegmentLCD_Write(kijelzo);
     }
+    //************************************************************************************
 
-    SegmentLCD_Write(kijelzo);
-
-      }
-  //************************************************************************************
-
-  //**************A KAPACITIV ERZEKELO HELYZETE**************************************-*
-
+    //**************A KAPACITIV ERZEKELO HELYZETE***************************************
     static int sliderPos = -1;
     static int elozo_leosztott = -1;
     static int utolso_ervenyes_pos = 0;  // Utolso érvényes pozicio megtarására
@@ -144,15 +181,13 @@ void app_init(void)
 
     // Ha van érvényes pozíció (érintés), frissítjük az utolsó érvényes értéket
     if (sliderPos >= 0)
-     {
+    {
         utolso_ervenyes_pos = sliderPos;
-     }
+    }
 
     // Mindig az utolsó érvényes pozíciót használjuk
-
     int leosztott;
     leosztott = (utolso_ervenyes_pos * 8) / 48;
-
 
     // Korlátozás
     if (leosztott > 7) leosztott = 0;
@@ -179,51 +214,63 @@ void app_init(void)
         elozo_leosztott = leosztott;
     }
 
-    //*********************GOMB***************************************************-//
+    //*********************GOMB***************************************************
     //Erdemes lenne megszakítást (interruptot)!!!!!!!!!
-
-    bool gomballapot = (GPIO_PinInGet(gpioPortB, 9) == 0); // gomb állapota aktiv low
-
-    // Led lekezelésére
-    if (gomballapot)
-      {
-        GPIO_PinOutSet(gpioPortE, 2);  // LED be ha gomb nyomva
-        SegmentLCD_Number(leosztott +1); //0-48-ig
-      }
-    else
-      {
-        GPIO_PinOutClear(gpioPortE, 2); // LED ki ha gomb nincs nyomva
-      }
-
-    //*********************************************************************************//
-
-    //**********Képernyő törlése- nehézségi szint kiiratása , felkészülni, rajt****************-//
+    /*
     if (gomballapot)
     {
-        sl_udelay_wait(10000000);
+        gomballapot = false;  // reset flag
+        GPIO_PinOutSet(gpioPortE, 2);  // LED
+        SegmentLCD_Number(leosztott + 1);
+    }
+    */
+
+    //**********Képernyő törlése- nehézségi szint kiiratása , felkészülni, rajt****************-//
+    // Ezt az animáció résznél már nem blokkolva kellene, de megtartottam a kommenteket
+    if (gomballapot)
+    {
+        gomballapot = false;
+
+        SegmentLCD_Number(leosztott);
+        GPIO_PinOutSet(gpioPortE, 2); // LED0 bekapcsolása
+
+        sl_udelay_wait(1000000); // rövid vizuális jelzés
+
         animacio_aktiv = false;
         SegmentLCD_AllOff();
         SegmentLCD_AlphaNumberOff();
 
         SegmentLCD_Write("   3   ");
-        sl_udelay_wait(100000000);
+        sl_udelay_wait(1000000);
 
         SegmentLCD_AllOff();
         SegmentLCD_Write("   2   ");
-        sl_udelay_wait(100000000);
+        sl_udelay_wait(1000000);
 
         SegmentLCD_AllOff();
         SegmentLCD_Write("   1   ");
-        sl_udelay_wait(100000000);
+        sl_udelay_wait(1000000);
 
         SegmentLCD_AllOff();
         SegmentLCD_Write(" START ");
-        sl_udelay_wait(100000000);
+        sl_udelay_wait(1000000);
         SegmentLCD_AllOff();
         SegmentLCD_AlphaNumberOff();
 
-    }
-//*******************************************************************-//
-//*******************-Jatek kezdete*********************************-*//
+        starting = true;
 
+        GPIO_PinOutClear(gpioPortE, 2); // LED0 kikapcsolása, hogy ne maradjon bekapcsolva
+    }
   }
+  else if(starting)
+    {
+      //tesztelés képpen a másik led világit
+      GPIO_PinOutSet(gpioPortE, 3);  // LED
+      //void GPIO_PortOutClear(GPIO_Port_TypeDef port, uint32_t pins)
+
+
+      //--> The LEDs are connected to pins PE2 and PE3 in an activehigh configuration. -->efm32gg-stk3700.pdf ből
+    }
+    //*******************************************************************-//
+    //*******************-Jatek kezdete*********************************-*//
+}
