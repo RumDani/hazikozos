@@ -137,6 +137,11 @@ static bool animacio_aktiv = true;
 
 void app_process_action(void)
 {
+  static int sliderPos;
+  static int elozo_leosztott;
+  static int utolso_ervenyes_pos;
+  int leosztott;
+
   if(starting == false){
     if(animacio_aktiv)
     {
@@ -172,9 +177,9 @@ void app_process_action(void)
     //************************************************************************************
 
     //**************A KAPACITIV ERZEKELO HELYZETE***************************************
-    static int sliderPos = -1;
-    static int elozo_leosztott = -1;
-    static int utolso_ervenyes_pos = 0;  // Utolso érvényes pozicio megtarására
+    sliderPos = -1;
+    elozo_leosztott = -1;
+    utolso_ervenyes_pos = 0;  // Utolso érvényes pozicio megtarására
 
     // get slider position
     sliderPos = CAPLESENSE_getSliderPosition();
@@ -186,7 +191,7 @@ void app_process_action(void)
     }
 
     // Mindig az utolsó érvényes pozíciót használjuk
-    int leosztott;
+
     leosztott = (utolso_ervenyes_pos * 8) / 48;
 
     // Korlátozás
@@ -270,7 +275,43 @@ void app_process_action(void)
 
 
       //--> The LEDs are connected to pins PE2 and PE3 in an activehigh configuration. -->efm32gg-stk3700.pdf ből
+
+
+        //********************************************************************//
+        //*******************-Csúszka->Vadász*********************************//
+        // delete segments
+          for (uint8_t p = 0; p < SEGMENT_LCD_NUM_OF_LOWER_CHARS; p++) {
+             for (uint8_t s = 0; s < 15; s++) {
+                lowerCharSegments[p].raw = 1 << s;
+             }
+          }
+
+
+          // get slider position
+          sliderPos = CAPLESENSE_getSliderPosition();
+
+          // display slider position
+          SegmentLCD_Number(sliderPos);
+
+          // calculate position
+          elozo_leosztott = leosztott;
+          leosztott = sliderPos/8;
+
+          // set segment lines belonging to slider
+
+          lowerCharSegments[leosztott].d = 1;
+
+          // draw LCD
+          SegmentLCD_LowerSegments(lowerCharSegments);
+          //Delay(10);
+
+          //*******************************************************************//
     }
     //*******************************************************************-//
     //*******************-Jatek kezdete*********************************-*//
-}
+
+
+
+
+
+  }
