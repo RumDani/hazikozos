@@ -269,43 +269,37 @@ void app_process_action(void)
   }
   else if(starting)
     {
+
+      GPIO_PinModeSet(gpioPortF, 7, gpioModeInputPull, 1);  //vadász lövéshez 1-es gomb
+
       //tesztelés képpen a másik led világit
       GPIO_PinOutSet(gpioPortE, 3);  // LED
       //void GPIO_PortOutClear(GPIO_Port_TypeDef port, uint32_t pins)
-
-
       //--> The LEDs are connected to pins PE2 and PE3 in an activehigh configuration. -->efm32gg-stk3700.pdf ből
 
 
-        //********************************************************************//
-        //*******************-Csúszka->Vadász*********************************//
-        // delete segments
-          for (uint8_t p = 0; p < SEGMENT_LCD_NUM_OF_LOWER_CHARS; p++) {
-             for (uint8_t s = 0; s < 15; s++) {
-                lowerCharSegments[p].raw = 1 << s;
-             }
-          }
+      //********************************************************************//
+      //*******************-Csúszka->Vadász*********************************//
 
 
-          // get slider position
-          sliderPos = CAPLESENSE_getSliderPosition();
+      sliderPos = CAPLESENSE_getSliderPosition(); //csúszka pozíció bekérése
 
-          // display slider position
-          SegmentLCD_Number(sliderPos);
+      leosztott = (sliderPos * 7) / 48;   // 7 alsó szegmens van ahol a vadász megjelenhet
+      if (leosztott > 6) leosztott = 6;
+      if (leosztott < 0) leosztott = 0;
 
-          // calculate position
-          elozo_leosztott = leosztott;
-          leosztott = sliderPos/8;
+      lowerCharSegments[leosztott].d = 1; // vadász megjelenítése
 
-          // set segment lines belonging to slider
+      if(GPIO_PinInGet(gpioPortF, 7) == 0)
+        {
+            lowerCharSegments[leosztott].p = 1;   // ha pb1 lenyomva,
+            lowerCharSegments[leosztott].j = 1;   //
+            SegmentLCD_LowerSegments(lowerCharSegments);
+            sl_udelay_wait(100000);   //100ms ideig látszik a töltény
+        }
 
-          lowerCharSegments[leosztott].d = 1;
-
-          // draw LCD
-          SegmentLCD_LowerSegments(lowerCharSegments);
-          //Delay(10);
-
-          //*******************************************************************//
+      SegmentLCD_LowerSegments(lowerCharSegments);
+      //*******************************************************************//
     }
     //*******************************************************************-//
     //*******************-Jatek kezdete*********************************-*//
