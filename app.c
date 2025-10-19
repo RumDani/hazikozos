@@ -286,32 +286,31 @@ void app_process_action(void)
       static int leosztott2 = -1;
       static int elozoleosztott2 = -1;
 
+      // get slider position
+      sliderPos2 = CAPLESENSE_getSliderPosition();
 
-       // get slider position
-       sliderPos2 = CAPLESENSE_getSliderPosition();
+      // Csak akkor frissítjük, ha van aktív érintés
+      if (sliderPos2 >= 0)
+      {
+          // calculate position
+          leosztott2 = ((sliderPos2 * 7) / 48);
+          if (leosztott2 > 7) leosztott2 = 7;
+          if (leosztott2 < 0) leosztott2 = 0;
 
-       // display slider position
-       //SegmentLCD_Number(sliderPos2);
-
-       // calculate position
-       leosztott2 = ((sliderPos2 * 7) / 48);
-       if (leosztott2 > 7) leosztott2 = 7;
-
-
-       if(leosztott2!=elozoleosztott2)
-         {
-           // delete segments
-            for (uint8_t p = 0; p < SEGMENT_LCD_NUM_OF_LOWER_CHARS; p++)
+          if(leosztott2 != elozoleosztott2)
+          {
+              // delete segments
+              for (uint8_t p = 0; p < SEGMENT_LCD_NUM_OF_LOWER_CHARS; p++)
               {
                   lowerCharSegments[p].raw = 0;
               }
-           // set segment lines belonging to slider
-           lowerCharSegments[leosztott2].d = 1;
-           elozoleosztott2 = leosztott2;
-           // draw LCD
-           SegmentLCD_LowerSegments(lowerCharSegments);
-         }
-
+              // set segment lines belonging to slider
+              lowerCharSegments[leosztott2].d = 1;
+              elozoleosztott2 = leosztott2;
+              // draw LCD
+              SegmentLCD_LowerSegments(lowerCharSegments);
+          }
+      }
 
 
       /*if(GPIO_PinInGet(gpioPortF, 7) == 0)
