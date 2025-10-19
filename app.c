@@ -137,10 +137,10 @@ static bool animacio_aktiv = true;
 
 void app_process_action(void)
 {
-  static int sliderPos;
-  static int elozo_leosztott;
-  static int utolso_ervenyes_pos;
-  int leosztott;
+ // static int sliderPos;
+  //static int elozo_leosztott;
+  //static int utolso_ervenyes_pos;
+  //int leosztott;
 
   if(starting == false){
     if(animacio_aktiv)
@@ -177,9 +177,10 @@ void app_process_action(void)
     //************************************************************************************
 
     //**************A KAPACITIV ERZEKELO HELYZETE***************************************
-    sliderPos = -1;
-    elozo_leosztott = -1;
-    utolso_ervenyes_pos = 0;  // Utolso érvényes pozicio megtarására
+    static int sliderPos = -1;
+    static int elozo_leosztott = -1;
+    static int utolso_ervenyes_pos = 0;  // Utolso érvényes pozicio megtarására
+    static int leosztott;
 
     // get slider position
     sliderPos = CAPLESENSE_getSliderPosition();
@@ -281,28 +282,50 @@ void app_process_action(void)
       //********************************************************************//
       //*******************-Csúszka->Vadász*********************************//
 
+      static int sliderPos2 = -1;
+      static int leosztott2 = -1;
+      static int elozoleosztott2 = -1;
 
-      sliderPos = CAPLESENSE_getSliderPosition(); //csúszka pozíció bekérése
 
-      leosztott = (sliderPos * 7) / 48;   // 7 alsó szegmens van ahol a vadász megjelenhet
-      if (leosztott > 6) leosztott = 6;
-      if (leosztott < 0) leosztott = 0;
+       // get slider position
+       sliderPos2 = CAPLESENSE_getSliderPosition();
 
-      lowerCharSegments[leosztott].d = 1; // vadász megjelenítése
+       // display slider position
+       //SegmentLCD_Number(sliderPos2);
 
-      if(GPIO_PinInGet(gpioPortF, 7) == 0)
+       // calculate position
+       leosztott2 = ((sliderPos2 * 7) / 48);
+       if (leosztott2 > 7) leosztott2 = 7;
+
+
+       if(leosztott2!=elozoleosztott2)
+         {
+           // delete segments
+            for (uint8_t p = 0; p < SEGMENT_LCD_NUM_OF_LOWER_CHARS; p++)
+              {
+                  lowerCharSegments[p].raw = 0;
+              }
+           // set segment lines belonging to slider
+           lowerCharSegments[leosztott2].d = 1;
+           elozoleosztott2 = leosztott2;
+           // draw LCD
+           SegmentLCD_LowerSegments(lowerCharSegments);
+         }
+
+
+
+      /*if(GPIO_PinInGet(gpioPortF, 7) == 0)
         {
-            lowerCharSegments[leosztott].p = 1;   // ha pb1 lenyomva,
-            lowerCharSegments[leosztott].j = 1;   //
+            lowerCharSegments[leosztott2].p = 1;   // ha pb1 lenyomva,
+            lowerCharSegments[leosztott2].j = 1;   //
             SegmentLCD_LowerSegments(lowerCharSegments);
             sl_udelay_wait(100000);   //100ms ideig látszik a töltény
-        }
+        }*/
 
-      SegmentLCD_LowerSegments(lowerCharSegments);
+
+
       //*******************************************************************//
     }
-    //*******************************************************************-//
-    //*******************-Jatek kezdete*********************************-*//
 
 
 
