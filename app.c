@@ -14,12 +14,13 @@
  * sections of the MSLA applicable to Source Code.
  *
  ******************************************************************************/
-
 #include "segmentlcd_individual.h"
 #include "segmentlcd.h"
 #include "em_device.h"
 #include "em_cmu.h"
 #include <string.h>
+
+#include <stdlib.h>   //random miatt kell
 
 #include "caplesense.h"
 #include "caplesenseconfig.h"
@@ -28,6 +29,8 @@
 #include "em_cmu.h"
 
 #include <sl_udelay.h>
+
+#include "sl_sleeptimer.h" //kacsa miatt
 
 #define BUTTON_PORT gpioPortF
 #define BUTTON_PIN  6
@@ -64,6 +67,9 @@ SegmentLCD_LowerCharSegments_TypeDef lowerCharSegments[SEGMENT_LCD_NUM_OF_LOWER_
 //lefutott-e a startig
 volatile bool starting = false;
 
+//globalis nehezsegi szint valtozo
+static int global_leosztott = 0;
+
 //gomb interrupthoz
 volatile bool gomballapot = false;
 
@@ -98,34 +104,37 @@ app_init (void)
 
   GPIO_PinModeSet (gpioPortE, 3, gpioModePushPull, 0);
 
+  GPIO_PinModeSet (gpioPortF, 7, gpioModeInputPull, 1); //vadász lövéshez 1-es gomb
+
+  srand(sl_sleeptimer_get_tick_count());
+
   //*******************************gomb interrupt***************************
 
   //===========================================================================
   //// 1. PERIFÉRIA KONFIGURÁLÁSA (GPIO interrupt kérjen)
   // ===========================================================================
-                  //void GPIO_PinModeSet(GPIO_Port_TypeDef port,unsigned int pin,GPIO_Mode_TypeDef mode,unsigned int out)
-  GPIO_PinModeSet(gpioPortB, 9, gpioModeInputPull, 1);
-                  //Interrupt konfigurálása (falling edge = gombnyomás)
-                  /*
-                   * void GPIO_ExtIntConfig(GPIO_Port_TypeDef port,
-                   unsigned int pin,
-                   unsigned int intNo,
-                   bool risingEdge,
-                   bool fallingEdge,
-                   bool enable)
-                   *///--> em_gpio.h
-  GPIO_ExtIntConfig(gpioPortB, 9, 9, false, true, true);  // falling edge, enable
+  //void GPIO_PinModeSet(GPIO_Port_TypeDef port,unsigned int pin,GPIO_Mode_TypeDef mode,unsigned int out)
+  GPIO_PinModeSet (gpioPortB, 9, gpioModeInputPull, 1);
+  //Interrupt konfigurálása (falling edge = gombnyomás)
+  /*
+   * void GPIO_ExtIntConfig(GPIO_Port_TypeDef port,
+   unsigned int pin,
+   unsigned int intNo,
+   bool risingEdge,
+   bool fallingEdge,
+   bool enable)
+   *///--> em_gpio.h
+  GPIO_ExtIntConfig (gpioPortB, 9, 9, false, true, true); // falling edge, enable
 
   // Tiszta állapot indításkor
-  GPIO_IntClear(1 << 9);  //<-- maszkolás
+  GPIO_IntClear (1 << 9);  //<-- maszkolás
   // ===========================================================================
   //// 2. NVIC ENGEDÉLYEZÉSE
   // ===========================================================================
   // NVIC engedélyezés NVIC_EnableIRQ --> core_cm3.h-ból
   //Az egyes NVIC IT vonalak elnevezése az efm32gg990f1024.h fájlban találhatók.
-  NVIC_ClearPendingIRQ(GPIO_ODD_IRQn);
-  NVIC_EnableIRQ(GPIO_ODD_IRQn);
-
+  NVIC_ClearPendingIRQ (GPIO_ODD_IRQn);
+  NVIC_EnableIRQ (GPIO_ODD_IRQn);
 
   //*************************************************************************
 }
@@ -145,11 +154,6 @@ static bool animacio_aktiv = true;
 void
 app_process_action (void)
 {
-  // static int sliderPos;
-  //static int elozo_leosztott;
-  //static int utolso_ervenyes_pos;
-  //int leosztott;
-
   if (starting == false)
     {
       if (animacio_aktiv)
@@ -231,7 +235,6 @@ app_process_action (void)
           elozo_leosztott = leosztott;
         }
 
-
       //**********Képernyő törlése- nehézségi szint kiiratása , felkészülni, rajt****************-//
       // Ezt az animáció résznél már nem blokkolva kellene, de megtartottam a kommenteket
       if (gomballapot)
@@ -239,6 +242,7 @@ app_process_action (void)
           gomballapot = false;
 
           SegmentLCD_Number (leosztott);
+          global_leosztott = leosztott;
           GPIO_PinOutSet (gpioPortE, 2); // LED0 bekapcsolása
 
           sl_udelay_wait (1000000); // rövid vizuális jelzés
@@ -271,9 +275,6 @@ app_process_action (void)
     }
   else if (starting)
     {
-
-      GPIO_PinModeSet (gpioPortF, 7, gpioModeInputPull, 1); //vadász lövéshez 1-es gomb
-
       //tesztelés képpen a másik led világit
       GPIO_PinOutSet (gpioPortE, 3);  // LED
       //void GPIO_PortOutClear(GPIO_Port_TypeDef port, uint32_t pins)
@@ -304,7 +305,7 @@ app_process_action (void)
               // delete segments
               for (uint8_t p = 0; p < SEGMENT_LCD_NUM_OF_LOWER_CHARS; p++)
                 {
-                  lowerCharSegments[p].raw = 0;
+                  lowerCharSegments[p].d = 0;  // vadasz torlese  csak
                 }
               // set segment lines belonging to slider
               lowerCharSegments[leosztott2].d = 1;
@@ -323,6 +324,60 @@ app_process_action (void)
        }*/
 
       //*******************************************************************//
+      ///*************-KACSA MEGJELENES*****************************-
+      int nehezsegiszint_ido;
+      nehezsegiszint_ido = global_leosztott;
+      uint64_t idobeallitott;
+
+      switch (nehezsegiszint_ido)
+      {
+          case 0: idobeallitott = 60000;  break;
+          case 1: idobeallitott = 50000;  break;
+          case 2: idobeallitott = 40000;  break;
+          case 3: idobeallitott = 30000;  break;
+          case 4: idobeallitott = 25000;  break;
+          case 5: idobeallitott = 20000;  break;
+          case 6: idobeallitott = 15000;  break;
+          case 7: idobeallitott = 10000;  break;
+          default: idobeallitott = 70000; break;
+      }
+
+      static bool kacsa_megjelenitva = false;
+      static int kacsa_pozicio = -1;
+      static uint32_t kacsa_megjelenesi_ido = 0;
+      static int kacsacounter=0;
+
+      uint32_t jelenlegiido = sl_sleeptimer_get_tick_count ();
+
+      // Csak egyszer fusson le, a "START" után
+      if (!kacsa_megjelenitva)
+        {
+          kacsa_pozicio = (rand () % 7); //8-el vett maradék biztositja a szamokat a szegmensnek
+
+          lowerCharSegments[kacsa_pozicio].a = 1;
+          SegmentLCD_LowerSegments (lowerCharSegments);
+
+          kacsa_megjelenesi_ido = jelenlegiido;
+          kacsa_megjelenitva = true;  // többet ne fusson ha megjelenitbe van
+          kacsacounter++;
+        }
+      uint32_t eltelt = jelenlegiido - kacsa_megjelenesi_ido;
+      if (eltelt >= idobeallitott && kacsacounter < 25)
+        {
+
+          lowerCharSegments[kacsa_pozicio].a = 0; //kacsa torlese csak
+
+          kacsa_pozicio = (rand () % 7);
+          lowerCharSegments[kacsa_pozicio].a = 1;
+
+          kacsa_megjelenesi_ido = jelenlegiido;
+          SegmentLCD_LowerSegments (lowerCharSegments);
+          kacsacounter++;
+
+          // FIGYELŐ: LCD + UART
+                  SegmentLCD_Number(kacsa_pozicio);  // LCD felső sor
+        }
+
     }
 
 }
