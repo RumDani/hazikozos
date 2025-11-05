@@ -67,16 +67,33 @@ volatile bool starting = false;
 //gomb interrupthoz
 volatile bool gomballapot = false;
 
+//lövés interrupthoz
+volatile bool loves = false;
+
 // ************************** INTERRUPT HANDLER *****************************
-void
-GPIO_ODD_IRQHandler (void)
+
+void GPIO_ODD_IRQHandler (void)
 {
   uint32_t flags = GPIO_IntGet ();
   GPIO_IntClear (flags);
 
-  if (flags & (1 << 9))  // PB9
+  if (flags & (1 << 9))  // PB0 gomb
     {
-      gomballapot = true;  // jelezzük a fő loop-nak
+      loves = true;  // jelezzük a fő loop-nak
+    }
+}
+
+
+
+void GPIO_EVEN_IRQHandler (void)
+{
+  uint32_t flags = GPIO_IntGet ();
+  GPIO_IntClear (flags);
+
+  if (flags & (1 << 10))  // PB1 gomb
+    {
+
+       gomballapot = true;  // jelezzük a fő loop-nak
     }
 }
 
@@ -104,7 +121,7 @@ app_init (void)
   //// 1. PERIFÉRIA KONFIGURÁLÁSA (GPIO interrupt kérjen)
   // ===========================================================================
                   //void GPIO_PinModeSet(GPIO_Port_TypeDef port,unsigned int pin,GPIO_Mode_TypeDef mode,unsigned int out)
-  GPIO_PinModeSet(gpioPortB, 9, gpioModeInputPull, 1);
+  GPIO_PinModeSet(gpioPortB, 10, gpioModeInputPull, 1);
                   //Interrupt konfigurálása (falling edge = gombnyomás)
                   /*
                    * void GPIO_ExtIntConfig(GPIO_Port_TypeDef port,
@@ -114,18 +131,23 @@ app_init (void)
                    bool fallingEdge,
                    bool enable)
                    *///--> em_gpio.h
-  GPIO_ExtIntConfig(gpioPortB, 9, 9, false, true, true);  // falling edge, enable
+  GPIO_ExtIntConfig(gpioPortB, 10, 10, false, true, true);  // falling edge, enable
 
   // Tiszta állapot indításkor
-  GPIO_IntClear(1 << 9);  //<-- maszkolás
+  GPIO_IntClear(1 << 10);  //<-- maszkolás
   // ===========================================================================
   //// 2. NVIC ENGEDÉLYEZÉSE
   // ===========================================================================
   // NVIC engedélyezés NVIC_EnableIRQ --> core_cm3.h-ból
   //Az egyes NVIC IT vonalak elnevezése az efm32gg990f1024.h fájlban találhatók.
+  NVIC_ClearPendingIRQ(GPIO_EVEN_IRQn);
+  NVIC_EnableIRQ(GPIO_EVEN_IRQn);
+
+  GPIO_PinModeSet(gpioPortB , 9, gpioModeInputPull, 1);
+  GPIO_ExtIntConfig(gpioPortB, 9, 9, false, true, true);
+
   NVIC_ClearPendingIRQ(GPIO_ODD_IRQn);
   NVIC_EnableIRQ(GPIO_ODD_IRQn);
-
 
   //*************************************************************************
 }
@@ -272,7 +294,7 @@ app_process_action (void)
   else if (starting)
     {
 
-      GPIO_PinModeSet (gpioPortF, 7, gpioModeInputPull, 1); //vadász lövéshez 1-es gomb
+      //GPIO_PinModeSet (gpioPortF, 7, gpioModeInputPull, 1); //vadász lövéshez 1-es gomb
 
       //tesztelés képpen a másik led világit
       GPIO_PinOutSet (gpioPortE, 3);  // LED
@@ -311,7 +333,12 @@ app_process_action (void)
               elozoleosztott2 = leosztott2;
               // draw LCD
               SegmentLCD_LowerSegments (lowerCharSegments);
+
+
             }
+
+
+
         }
 
       /*if(GPIO_PinInGet(gpioPortF, 7) == 0)
@@ -321,6 +348,20 @@ app_process_action (void)
        SegmentLCD_LowerSegments(lowerCharSegments);
        sl_udelay_wait(100000);   //100ms ideig látszik a töltény
        }*/
+
+      if(loves)
+       {
+          loves=false;
+
+          lowerCharSegments[leosztott2].p = 1;
+          lowerCharSegments[leosztott2].j = 1;
+          SegmentLCD_LowerSegments(lowerCharSegments);
+          sl_udelay_wait(100000);   //100ms ideig látszik a töltény
+
+          lowerCharSegments[leosztott2].p = 0;
+          lowerCharSegments[leosztott2].j = 0;
+          SegmentLCD_LowerSegments(lowerCharSegments);
+       }
 
       //*******************************************************************//
     }
