@@ -357,7 +357,7 @@ app_process_action (void)
        sl_udelay_wait(100000);   //100ms ideig látszik a töltény
        }*/
 
-      if(loves)
+      /*if(loves)
        {
           loves=false;
 
@@ -369,7 +369,7 @@ app_process_action (void)
           lowerCharSegments[leosztott2].p = 0;
           lowerCharSegments[leosztott2].j = 0;
           SegmentLCD_LowerSegments(lowerCharSegments);
-       }
+       }*/
 
       //*******************************************************************//
       ///*************-KACSA MEGJELENES*****************************-
@@ -425,6 +425,23 @@ app_process_action (void)
           // FIGYELŐ: LCD + UART
                   SegmentLCD_Number(kacsa_pozicio);  // LCD felső sor
         }
+
+      if(loves)
+             {
+                loves=false;
+                if(leosztott2==kacsa_pozicio)
+                {
+                    SegmentLCD_Number(99); //CSAK TESZTELÉSHEZ: ha találat van 99 a számlálón
+                }
+                lowerCharSegments[leosztott2].p = 1;
+                lowerCharSegments[leosztott2].j = 1;
+                SegmentLCD_LowerSegments(lowerCharSegments);
+                sl_udelay_wait(100000);   //100ms ideig látszik a töltény
+
+                lowerCharSegments[leosztott2].p = 0;
+                lowerCharSegments[leosztott2].j = 0;
+                SegmentLCD_LowerSegments(lowerCharSegments);
+             }
 
     }
 
