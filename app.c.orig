@@ -130,8 +130,25 @@ app_init (void)
   //===========================================================================
   //// 1. PERIFÉRIA KONFIGURÁLÁSA (GPIO interrupt kérjen)
   // ===========================================================================
-  //void GPIO_PinModeSet(GPIO_Port_TypeDef port,unsigned int pin,GPIO_Mode_TypeDef mode,unsigned int out)
+<<<<<<< HEAD
+                  //void GPIO_PinModeSet(GPIO_Port_TypeDef port,unsigned int pin,GPIO_Mode_TypeDef mode,unsigned int out)
   GPIO_PinModeSet(gpioPortB, 10, gpioModeInputPull, 1);
+                  //Interrupt konfigurálása (falling edge = gombnyomás)
+                  /*
+                   * void GPIO_ExtIntConfig(GPIO_Port_TypeDef port,
+                   unsigned int pin,
+                   unsigned int intNo,
+                   bool risingEdge,
+                   bool fallingEdge,
+                   bool enable)
+                   *///--> em_gpio.h
+  GPIO_ExtIntConfig(gpioPortB, 10, 10, false, true, true);  // falling edge, enable
+
+  // Tiszta állapot indításkor
+  GPIO_IntClear(1 << 10);  //<-- maszkolás
+=======
+  //void GPIO_PinModeSet(GPIO_Port_TypeDef port,unsigned int pin,GPIO_Mode_TypeDef mode,unsigned int out)
+  GPIO_PinModeSet (gpioPortB, 9, gpioModeInputPull, 1);
   //Interrupt konfigurálása (falling edge = gombnyomás)
   /*
    * void GPIO_ExtIntConfig(GPIO_Port_TypeDef port,
@@ -141,23 +158,29 @@ app_init (void)
    bool fallingEdge,
    bool enable)
    *///--> em_gpio.h
-  GPIO_ExtIntConfig(gpioPortB, 10, 10, false, true, true);  // falling edge, enable
+  GPIO_ExtIntConfig (gpioPortB, 9, 9, false, true, true); // falling edge, enable
 
   // Tiszta állapot indításkor
-  GPIO_IntClear(1 << 10);  //<-- maszkolás
+  GPIO_IntClear (1 << 9);  //<-- maszkolás
+>>>>>>> kacsaág
   // ===========================================================================
   //// 2. NVIC ENGEDÉLYEZÉSE
   // ===========================================================================
   // NVIC engedélyezés NVIC_EnableIRQ --> core_cm3.h-ból
   //Az egyes NVIC IT vonalak elnevezése az efm32gg990f1024.h fájlban találhatók.
+<<<<<<< HEAD
   NVIC_ClearPendingIRQ(GPIO_EVEN_IRQn);
   NVIC_EnableIRQ(GPIO_EVEN_IRQn);
 
   GPIO_PinModeSet(gpioPortB , 9, gpioModeInputPull, 1);
   GPIO_ExtIntConfig(gpioPortB, 9, 9, false, true, true);
 
+  NVIC_ClearPendingIRQ(GPIO_ODD_IRQn);
+  NVIC_EnableIRQ(GPIO_ODD_IRQn);
+=======
   NVIC_ClearPendingIRQ (GPIO_ODD_IRQn);
   NVIC_EnableIRQ (GPIO_ODD_IRQn);
+>>>>>>> kacsaág
 
   //*************************************************************************
 }
@@ -177,11 +200,6 @@ static bool animacio_aktiv = true;
 void
 app_process_action (void)
 {
-  // static int sliderPos;
-  //static int elozo_leosztott;
-  //static int utolso_ervenyes_pos;
-  //int leosztott;
-
   if (starting == false)
     {
       if (animacio_aktiv)
@@ -303,7 +321,12 @@ app_process_action (void)
     }
   else if (starting)
     {
+<<<<<<< HEAD
+
       //GPIO_PinModeSet (gpioPortF, 7, gpioModeInputPull, 1); //vadász lövéshez 1-es gomb
+
+=======
+>>>>>>> kacsaág
       //tesztelés képpen a másik led világit
       GPIO_PinOutSet (gpioPortE, 3);  // LED
       //void GPIO_PortOutClear(GPIO_Port_TypeDef port, uint32_t pins)
