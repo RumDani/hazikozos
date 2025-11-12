@@ -49,7 +49,7 @@ volatile bool starting = false;     //lefutott-e a startig
 volatile bool gomballapot = false;  //gomb interrupthoz
 volatile bool loves = false;        //lövés interrupthoz
 static int global_leosztott = 0;    //globalis nehezsegi szint valtozo
-
+static int shotDownCount = 0;
 // ************************** INTERRUPT HANDLER *****************************
 void GPIO_ODD_IRQHandler (void)
 {
@@ -136,17 +136,28 @@ void app_process_action(void)
     {
       hunterUpdate ();
       duckUpdate ();
-      if (loves)
+      duckCounter (shotDownCount);
+      if (!duckIsGameOver ())
         {
-          loves = false;
-          int hunterPos = hunterGetPos ();
-          shootingUpdate (hunterPos);
-
-          if (duckIsHit (hunterPos))
+          if (loves)
             {
-              //TODO: eltaláltuk a kacsát: ki kell jeleznünk a kis számokon
+              loves = false;
+              int hunterPos = hunterGetPos ();
+              shootingUpdate (hunterPos);
 
+              if (duckIsHit (hunterPos))
+                {
+                  shotDownCount++;
+                  duckHitAnimation (hunterPos);   // eltalált kacsa villogása
+
+                }
             }
+        }
+      else
+        {
+          SegmentLCD_AllOff();
+          SegmentLCD_AlphaNumberOff();
+          starting = false;
         }
     }
 }

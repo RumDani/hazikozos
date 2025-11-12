@@ -2,6 +2,7 @@
 #include "setlevel.h"
 #include <stdbool.h>
 #include "caplesense.h"
+#include "segmentlcd.h"
 #include "segmentlcd_individual.h"
 #include "em_gpio.h"
 #include "sl_udelay.h"
@@ -41,17 +42,17 @@ int setLevelUpdate(void)
   leosztott = (utolso_ervenyes_pos * 8) / 48;
 
   // Korlátozás
-  if (leosztott > 7)
-    leosztott = 0;
-  if (leosztott < 0)
-    leosztott = 0;
+  if (leosztott > 8)
+    leosztott = 8;
+  if (leosztott < 1)
+    leosztott = 1;
 
   if (leosztott != elozo_leosztott)
     {
       if (leosztott > elozo_leosztott)
         {
           // Új gyűrűk bekapcsolása
-          for (int i = elozo_leosztott + 1; i <= leosztott; i++)
+          for (int i = elozo_leosztott; i < leosztott; i++)
             {
               SegmentLCD_ARing (i, 1);
             }
@@ -59,7 +60,7 @@ int setLevelUpdate(void)
       else
         {
           // Extra gyűrűk kikapcsolása
-          for (int i = leosztott + 1; i <= elozo_leosztott; i++)
+          for (int i = leosztott; i < elozo_leosztott; i++)
             {
               SegmentLCD_ARing (i, 0);
             }
