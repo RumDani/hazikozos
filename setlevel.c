@@ -7,42 +7,35 @@
 #include "em_gpio.h"
 #include "sl_udelay.h"
 
-extern volatile bool gomballapot;
+extern volatile bool gomballapot;   //gomb allapotára --> megszakításhoz
 
-static int sliderPos;
-static int elozo_leosztott;
-static int utolso_ervenyes_pos; // Utolso érvényes pozicio megtarására
-static int leosztott;
-static int selectedLevel;
-static bool ok;
+static int sliderPos;   //slider pozíciójához
+static int elozo_leosztott;   //a törlés miatt, hogy az e
+static int utolso_ervenyes_pos; // Utolso érvényes pozicio megtarására még leosztás előtt
+static int leosztott;   //slider pozicio leosztás után
+static int selectedLevel;   //kiiratáshoz a leosztottal lesz egyenlő
 
-void setLevelInit(void)
+void setLevelInit(void) //Változók kezdeti értékbe állítása / inicializálása
 {
   sliderPos = -1;
   elozo_leosztott = -1;
   utolso_ervenyes_pos = 0;
   leosztott = 1;
   selectedLevel = 0;
-  ok = false;
-  //SegmentLCD_AllOff();
 
-  //SegmentLCD_ARing(0, 1);
   elozo_leosztott = 0;
 }
 
 int setLevelUpdate(void)
 {
-  sliderPos = CAPLESENSE_getSliderPosition ();
+  sliderPos = CAPLESENSE_getSliderPosition ();    //a slider értékét itt kapjuk meg
 
-  // Ha van érvényes pozíció (érintés), frissítjük az utolsó érvényes értéket
-  if (sliderPos >= 0)
+  if (sliderPos >= 0)   // Ha van érvényes pozíció (érintés), frissítjük az utolsó érvényes értéket
     {
       utolso_ervenyes_pos = sliderPos;
     }
 
-  // Mindig az utolsó érvényes pozíciót használjuk
-
-  leosztott = (utolso_ervenyes_pos * 8) / 48;
+  leosztott = (utolso_ervenyes_pos * 8) / 48;     // Mindig az utolsó érvényes pozíciót használjuk
 
   //korlátozás
   if (leosztott > 8)
@@ -50,40 +43,38 @@ int setLevelUpdate(void)
   if (leosztott < 1)
     leosztott = 1;
 
-  if (leosztott != elozo_leosztott)
+  if (leosztott != elozo_leosztott)   //Új érvényes leosztás esetén érték frissítése
     {
       if (leosztott > elozo_leosztott)
         {
-          // Új gyűrűk bekapcsolása
-          for (int i = elozo_leosztott; i < leosztott; i++)
+          for (int i = elozo_leosztott; i < leosztott; i++)    // Új gyűrűk bekapcsolása
             {
               SegmentLCD_ARing (i, 1);
             }
         }
       else
         {
-          // Extra gyűrűk kikapcsolása
-          for (int i = leosztott; i < elozo_leosztott; i++)
+          for (int i = leosztott; i < elozo_leosztott; i++)   // Extra gyűrűk kikapcsolása
             {
               SegmentLCD_ARing (i, 0);
             }
         }
-      elozo_leosztott = leosztott;
+      elozo_leosztott = leosztott;    //Ez azért hogy a leoszást vizsgálni tudjuk, hogy változott e
     }
   return leosztott;
 }
-bool setLevelOk(void)
+
+bool setLevelOk(void)   //Itt történik meg a gombnyomásra a szint beállítása és kiírása
 {
   if (gomballapot)
       {
           gomballapot = false;
-          ok = true;
-          selectedLevel = leosztott;
-          /* LCD visszajelzés */
-          SegmentLCD_Number(selectedLevel);
-          GPIO_PinOutSet(gpioPortE, 2);
-          sl_udelay_wait(300000);
-          GPIO_PinOutClear(gpioPortE, 2);
+          selectedLevel = leosztott;    //szint eltárolása későbbi felhasználásra
+
+          SegmentLCD_Number(selectedLevel);   //kiírjuk a választott szintet
+          GPIO_PinOutSet(gpioPortE, 2);   //Led bekapcsolása gomb nyomásának visszajelzésére
+          sl_udelay_wait(300000);   //kis késleltetés
+          GPIO_PinOutClear(gpioPortE, 2);   //led lekapcsolása
 
           return true;
       }
