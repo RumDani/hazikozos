@@ -1,8 +1,9 @@
-
 #include "animation.h"
 #include "segmentlcd_individual.h"
 #include <string.h>
 #include <stdbool.h>
+#include <sl_udelay.h>
+#include "segmentlcd.h"
 
 static const char *szoveg = "SET LEVEL";
 static char kijelzo[9] = "";

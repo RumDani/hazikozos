@@ -1,6 +1,7 @@
 
 #include "shooting.h"
 #include "segmentlcd_individual.h"
+#include <sl_udelay.h>
 
 extern SegmentLCD_LowerCharSegments_TypeDef lowerCharSegments[SEGMENT_LCD_NUM_OF_LOWER_CHARS];
 

@@ -115,11 +115,17 @@ void app_init (void)
 /***************************************************************************//**
  * App ticking function. -- > T időnként meghívódik
  ******************************************************************************/
-
+static bool levelInitialized = false;
 void app_process_action(void)
 {
   if (!starting)
     {
+      if (!levelInitialized)
+        {
+              setLevelInit();        // Csak egyszer inicializáljuk
+              levelInitialized = true;
+         }
+      //setLevelInit();
       animationShowSetLevel ();
       setLevelUpdate ();
 
@@ -129,6 +135,7 @@ void app_process_action(void)
           animationShowCountDown ();
           duckInit (global_leosztott);
           starting = true;
+          levelInitialized = false;
         }
     }
 

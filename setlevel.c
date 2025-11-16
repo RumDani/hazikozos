@@ -21,10 +21,13 @@ void setLevelInit(void)
   sliderPos = -1;
   elozo_leosztott = -1;
   utolso_ervenyes_pos = 0;
-  leosztott = 0;
+  leosztott = 1;
   selectedLevel = 0;
   ok = false;
-  SegmentLCD_AllOff();
+  //SegmentLCD_AllOff();
+
+  //SegmentLCD_ARing(0, 1);
+  elozo_leosztott = 0;
 }
 
 int setLevelUpdate(void)
@@ -41,7 +44,7 @@ int setLevelUpdate(void)
 
   leosztott = (utolso_ervenyes_pos * 8) / 48;
 
-  // Korlátozás
+  //korlátozás
   if (leosztott > 8)
     leosztott = 8;
   if (leosztott < 1)
