@@ -27,15 +27,15 @@ void duckInit(int difficulty)
 
         switch (difficulty)
         {
-            case 0: idobeallitott = 60000;  break;
-            case 1: idobeallitott = 50000;  break;
-            case 2: idobeallitott = 40000;  break;
-            case 3: idobeallitott = 30000;  break;
-            case 4: idobeallitott = 25000;  break;
-            case 5: idobeallitott = 20000;  break;
-            case 6: idobeallitott = 15000;  break;
-            case 7: idobeallitott = 10000;  break;
-            case 8: idobeallitott = 8000; break;
+            case 0: idobeallitott = 70000;  break;
+            case 1: idobeallitott = 65000;  break;
+            case 2: idobeallitott = 60000;  break;
+            case 3: idobeallitott = 55000;  break;
+            case 4: idobeallitott = 50000;  break;
+            case 5: idobeallitott = 45000;  break;
+            case 6: idobeallitott = 40000;  break;
+            case 7: idobeallitott = 35000;  break;
+            case 8: idobeallitott = 30000; break;
             default: idobeallitott = 70000; break;
         }
 
