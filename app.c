@@ -123,6 +123,7 @@ void app_process_action(void)
       if (!levelInitialized)
         {
               setLevelInit();        // Csak egyszer inicializáljuk
+              shotDownCount = 0;
               levelInitialized = true;
          }
       //setLevelInit();
