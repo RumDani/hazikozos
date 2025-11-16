@@ -11,7 +11,7 @@ static uint32_t start_index = 0;
 static int karakterdelaycounter = 0;
 
 
-void animationShowSetLevel(void)
+void animationShowSetLevel(void)  // set level szöveg futtatása
 {
   karakterdelaycounter++; //kesleltetes miatt
 
@@ -44,7 +44,7 @@ void animationShowSetLevel(void)
 
 }
 
-void animationShowCountDown(void)
+void animationShowCountDown(void)   // játék kezdése előtt visszaszámlálás
 {
             SegmentLCD_AllOff ();
             SegmentLCD_AlphaNumberOff ();

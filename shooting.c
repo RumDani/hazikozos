@@ -5,16 +5,7 @@
 
 extern SegmentLCD_LowerCharSegments_TypeDef lowerCharSegments[SEGMENT_LCD_NUM_OF_LOWER_CHARS];
 
-void shootingInit(void)
-{
-  for (int i = 0; i < SEGMENT_LCD_NUM_OF_LOWER_CHARS; i++) {
-          lowerCharSegments[i].p = 0;
-          lowerCharSegments[i].j = 0;
-      }
-}
-
-
-void shootingUpdate(int hunterPos)
+void shootingUpdate(int hunterPos)  // töltény kijelzése a vadász pozíciójának megfelelően
 {
   lowerCharSegments[hunterPos].p = 1;
   lowerCharSegments[hunterPos].j = 1;

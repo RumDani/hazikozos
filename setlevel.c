@@ -18,11 +18,9 @@ static int selectedLevel;   //kiiratáshoz a leosztottal lesz egyenlő
 void setLevelInit(void) //Változók kezdeti értékbe állítása / inicializálása
 {
   sliderPos = -1;
-  elozo_leosztott = -1;
   utolso_ervenyes_pos = 0;
   leosztott = 1;
   selectedLevel = 0;
-
   elozo_leosztott = 0;
 }
 
@@ -81,6 +79,7 @@ bool setLevelOk(void)   //Itt történik meg a gombnyomásra a szint beállítá
       return false;
 
 }
+
 int setLevelGetVal(void)
 {
 

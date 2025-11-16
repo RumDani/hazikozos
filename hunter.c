@@ -8,24 +8,15 @@ static int leosztott;
 static int sliderPos;
 extern SegmentLCD_LowerCharSegments_TypeDef lowerCharSegments[SEGMENT_LCD_NUM_OF_LOWER_CHARS];
 
-void hunterInit(void)
-{
-  hunterPos = -1;
-  leosztott = -1;
-  sliderPos = -1;
-  for (int i = 0; i < SEGMENT_LCD_NUM_OF_LOWER_CHARS; i++) {
-          lowerCharSegments[i].d = 0;
-      }
-}
 
-void hunterUpdate(void)
+void hunterUpdate(void)   // vadász folyamatos kijelzése a slider pozíciónak megfelelően
 {
   sliderPos = CAPLESENSE_getSliderPosition ();
 
   // Csak akkor frissítjük, ha van aktív érintés
   if (sliderPos >= 0)
     {
-      // calculate position
+      // slider pozíció számítása
       leosztott = ((sliderPos * 7) / 48);
       if (leosztott > 7)
         leosztott = 7;
@@ -34,16 +25,15 @@ void hunterUpdate(void)
 
       if (leosztott != hunterPos)
         {
-          // delete segments
           for (uint8_t p = 0; p < SEGMENT_LCD_NUM_OF_LOWER_CHARS; p++)
             {
-              lowerCharSegments[p].d = 0;  // vadasz torlese  csak
+              lowerCharSegments[p].d = 0;  // vadász szegmens törlése
             }
 
-          lowerCharSegments[leosztott].d = 1; // set segment lines belonging to slider
+          lowerCharSegments[leosztott].d = 1; // új pozíció kijelzése
           hunterPos = leosztott;
 
-          SegmentLCD_LowerSegments (lowerCharSegments);    // draw LCD
+          SegmentLCD_LowerSegments (lowerCharSegments);
         }
     }
 }

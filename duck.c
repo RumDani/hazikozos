@@ -6,12 +6,12 @@
 #include <stdlib.h>
 #include <sl_udelay.h>
 
-static bool kacsa_megjelenitve;   //első kacsa külön lekezelése, mert az időt innen kezdjük számolni
-static int kacsa_pozicio;   //kacsa pozicio tárolása
+static bool kacsa_megjelenitve;     //első kacsa külön lekezelése, mert az időt innen kezdjük számolni
+static int kacsa_pozicio;           //kacsa pozicio tárolása
 static int kacsa_megjelenesi_ido;   //jelenlegi időből és az eltelt időt ebben tudjuk számolni (eltelt idő - jelenlegi idő = delta t)
-static int kacsacounter;    //megjelenitett kacsák száma
-static int idobeallitott;   //nehezsegi szint alapjan beallitott ido tárolása
-static bool gameOver;   //játé végéhez állapot/flag
+static int kacsacounter;            //megjelenitett kacsák száma
+static int idobeallitott;           //nehezsegi szint alapjan beallitott ido tárolása
+static bool gameOver;               //játé végéhez állapot/flag
 extern SegmentLCD_LowerCharSegments_TypeDef lowerCharSegments[SEGMENT_LCD_NUM_OF_LOWER_CHARS];    //LCD alsó szegmenseinek vezérlésére
 
 void duckInit(int difficulty)   //alapértékek beállítása / inicializálás
@@ -45,17 +45,17 @@ void duckUpdate()   //itt frissitjuk a kacsákat random
   int jelenlegiido = sl_sleeptimer_get_tick_count ();   // Jelenlegi idő lekérése
   if (!kacsa_megjelenitve)      // Csak egyszer fusson le, a "START" után -->// Ha még nincs kacsa megjelenítve, akkor jelenítsünk meg egy újat
     {
-      kacsa_pozicio = (rand () % 7); //7-el vett maradék biztositja a szamokat a szegmensnek 0-6
+      kacsa_pozicio = (rand () % 7);  //7-el vett maradék biztositja a szamokat a szegmensnek 0-6
 
       lowerCharSegments[kacsa_pozicio].a = 1;
       SegmentLCD_LowerSegments (lowerCharSegments);   // Kacsa megjelenítése az LCD-n (a szegmens bekapcsolása)
 
       kacsa_megjelenesi_ido = jelenlegiido;   // Idő és állapot frissítése
-      kacsa_megjelenitve = true;  // többet ne fusson ha megjelenitbe van
-      kacsacounter++;   //kacsaszám növelése
+      kacsa_megjelenitve = true;              // többet ne fusson ha megjelenitbe van
+      kacsacounter++;                         //kacsaszám növelése
     }
 
-  int eltelt = jelenlegiido - kacsa_megjelenesi_ido;    /// Eltelt idő számítása az utolsó megjelenés óta
+  int eltelt = jelenlegiido - kacsa_megjelenesi_ido;    // Eltelt idő számítása az utolsó megjelenés óta
   if (eltelt >= idobeallitott)    // Ha letelt az idő, akkor új kacsa vagy játék vége
     {
 
@@ -74,7 +74,7 @@ void duckUpdate()   //itt frissitjuk a kacsákat random
 
       else
         {
-          SegmentLCD_Write ("GAME");    //Game over megjelenitése és várakozás
+          SegmentLCD_Write ("GAME");    //Game over megjelenítése és várakozás
           sl_udelay_wait (1000000);
           SegmentLCD_Write ("OVER");
           sl_udelay_wait (2000000);
@@ -89,7 +89,7 @@ void duckUpdate()   //itt frissitjuk a kacsákat random
 
 /**
  * @brief Ellenőrzi, hogy a vadász eltalálta-e a kacsát
- * @param hunterPos A vadász pozíciója
+ * @param hunterPos a vadász pozíciója
  * @return true ha eltalálta, false egyébként
  */
 bool duckIsHit (int hunterPos)
@@ -128,7 +128,6 @@ void duckHitAnimation(int hunterPos)
   lowerCharSegments[hunterPos].a = 0;   // Végül kikapcsoljuk a szegmenst
   SegmentLCD_LowerSegments (lowerCharSegments);
 }
-
 
 /**
  * @brief Megjeleníti a játék pontszámát
