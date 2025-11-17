@@ -38,10 +38,6 @@
 
 #include "sl_sleeptimer.h" //kacsa miatt
 
-#define BUTTON_PORT gpioPortF
-#define BUTTON_PIN  6
-
-//SegmentLCD_UpperCharSegments_TypeDef upperCharSegments[SEGMENT_LCD_NUM_OF_UPPER_CHARS]; //felső LCD-hez
 SegmentLCD_LowerCharSegments_TypeDef lowerCharSegments[SEGMENT_LCD_NUM_OF_LOWER_CHARS]; //alsó LCD-hez
 
 
@@ -50,6 +46,7 @@ volatile bool gomballapot = false;  //gomb interrupthoz
 volatile bool loves = false;        //lövés interrupthoz
 static int global_leosztott = 0;    //globalis nehezsegi szint valtozo
 static int shotDownCount = 0;
+static bool levelInitialized = false;
 // ************************** INTERRUPT HANDLER *****************************
 void GPIO_ODD_IRQHandler (void)
 {
@@ -82,11 +79,8 @@ void app_init (void)
 {
   SegmentLCD_Init (false); //segmentlcd.c-ből a függvény --> ne használjon boostot
   CAPLESENSE_Init (false); //Initializes the capacative sense system without LESENSE. -- false
-  //void CMU_ClockEnable(CMU_Clock_TypeDef clock, bool enable)
   CMU_ClockEnable (cmuClock_GPIO, true);
   GPIO_PinModeSet (gpioPortE, 2, gpioModePushPull, 0); // LED kiindulási állapot: KI
-  GPIO_PinModeSet (gpioPortE, 3, gpioModePushPull, 0);
-  GPIO_PinModeSet (gpioPortF, 7, gpioModeInputPull, 1); //vadász lövéshez 1-es gomb
   srand(sl_sleeptimer_get_tick_count());
   //*******************************gomb interrupt***************************
   //===========================================================================
@@ -97,16 +91,18 @@ void app_init (void)
   //Interrupt konfigurálása (falling edge = gombnyomás)
   GPIO_ExtIntConfig(gpioPortB, 10, 10, false, true, true);  // falling edge, enable
   // Tiszta állapot indításkor
-  GPIO_IntClear(1 << 10);  //<-- maszkolás
+  GPIO_IntClear(1 << 10);
+
+  GPIO_PinModeSet(gpioPortB , 9, gpioModeInputPull, 1);
+  GPIO_ExtIntConfig(gpioPortB, 9, 9, false, true, true);
+  GPIO_IntClear(1 << 9);
   // ===========================================================================
   //// 2. NVIC ENGEDÉLYEZÉSE
   // ===========================================================================
   // NVIC engedélyezés NVIC_EnableIRQ --> core_cm3.h-ból
-  //Az egyes NVIC IT vonalak elnevezése az efm32gg990f1024.h fájlban találhatók.
+  // Az egyes NVIC IT vonalak elnevezése az efm32gg990f1024.h fájlban találhatók.
   NVIC_ClearPendingIRQ(GPIO_EVEN_IRQn);
   NVIC_EnableIRQ(GPIO_EVEN_IRQn);
-  GPIO_PinModeSet(gpioPortB , 9, gpioModeInputPull, 1);
-  GPIO_ExtIntConfig(gpioPortB, 9, 9, false, true, true);
   NVIC_ClearPendingIRQ (GPIO_ODD_IRQn);
   NVIC_EnableIRQ (GPIO_ODD_IRQn);
   //*************************************************************************
@@ -115,10 +111,10 @@ void app_init (void)
 /***************************************************************************//**
  * App ticking function. -- > T időnként meghívódik
  ******************************************************************************/
-static bool levelInitialized = false;
+
 void app_process_action(void)
 {
-  if (!starting)
+  if (!starting)  // PB1-el még nem lett szint kiválasztva
     {
       if (!levelInitialized)
         {
@@ -126,34 +122,34 @@ void app_process_action(void)
               shotDownCount = 0;
               levelInitialized = true;
          }
-      //setLevelInit();
-      animationShowSetLevel ();
-      setLevelUpdate ();
 
-      if (setLevelOk ())
+      animationShowSetLevel ();   // fut a "SET LEVEL+ felirat a képernyőn
+      setLevelUpdate ();          // a slider pozíció függvényében frissítjük a ring LCD szegmenseket
+
+      if (setLevelOk ())  // PB1-el konfirmáljuk a kiválasztott szintet
         {
-          global_leosztott = setLevelGetVal();
-          animationShowCountDown ();
-          duckInit (global_leosztott);
+          global_leosztott = setLevelGetVal();    // kiválaaztott nehézségi szint bekérése
+          animationShowCountDown ();              // visszaszámlálás a játék indulása előtt
+          duckInit (global_leosztott);            // többek között a kacsa eltűnési sebességét állítja be
           starting = true;
           levelInitialized = false;
         }
     }
 
-  if (starting)
+  if (starting) // PB1-el szintet kiválasztottuk
     {
-      hunterUpdate ();
-      duckUpdate ();
-      duckCounter (shotDownCount);
-      if (!duckIsGameOver ())
+      hunterUpdate ();                // slider pozíciónak megfelelően kijelzi a vaászt az adott szegmensen
+      duckUpdate ();                  // random pozíciókban megjeleníti a kacsákat
+      duckCounter (shotDownCount);    // a játék állását jelzi ki a jobb felső LCD-n
+      if (!duckIsGameOver ())         // duckUpdate állítja át a gameOver változót miután megjelent a játék során 25 kacsa
         {
-          if (loves)
+          if (loves)    // ha PB0 lenyomásra került
             {
               loves = false;
-              int hunterPos = hunterGetPos ();
-              shootingUpdate (hunterPos);
+              int hunterPos = hunterGetPos ();    // vadász pozíciójának bekérése
+              shootingUpdate (hunterPos);         // töltény felvillan a vadász pozíciójában
 
-              if (duckIsHit (hunterPos))
+              if (duckIsHit (hunterPos))          // ha a kacsa és vadász pozíció megegyezik amikor lőttünk
                 {
                   shotDownCount++;
                   duckHitAnimation (hunterPos);   // eltalált kacsa villogása

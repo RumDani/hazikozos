@@ -13,7 +13,7 @@ static int karakterdelaycounter = 0;
 
 void animationShowSetLevel(void)  // set level szöveg futtatása
 {
-  karakterdelaycounter++; //kesleltetes miatt
+  karakterdelaycounter++; //késleltetés miatt
 
   size_t szoveghossz = strlen (szoveg);
   if (karakterdelaycounter % 40 == 0) //minden 40.lefutasra hajtodik vegre
@@ -32,7 +32,7 @@ void animationShowSetLevel(void)  // set level szöveg futtatása
       kijelzo[8] = '\0';
 
       start_index++;
-      if (start_index >= szoveghossz)
+      if (start_index >= szoveghossz) // ha végigment a szöveg akkor előről kezdődik újra
         {
           start_index = 0;
         }

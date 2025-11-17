@@ -11,8 +11,8 @@ extern volatile bool gomballapot;   //gomb allapotára --> megszakításhoz
 
 static int sliderPos;   //slider pozíciójához
 static int elozo_leosztott;   //a törlés miatt, hogy az e
-static int utolso_ervenyes_pos; // Utolso érvényes pozicio megtarására még leosztás előtt
-static int leosztott;   //slider pozicio leosztás után
+static int utolso_ervenyes_pos; // Utolso érvényes pozicio megtartására még leosztás előtt
+static int leosztott;   //slider pozício leosztás után
 static int selectedLevel;   //kiiratáshoz a leosztottal lesz egyenlő
 
 void setLevelInit(void) //Változók kezdeti értékbe állítása / inicializálása

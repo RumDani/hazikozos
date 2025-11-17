@@ -18,12 +18,13 @@ void hunterUpdate(void)   // vadász folyamatos kijelzése a slider pozíciónak
     {
       // slider pozíció számítása
       leosztott = ((sliderPos * 7) / 48);
+      // érték korlátozása
       if (leosztott > 7)
         leosztott = 7;
       if (leosztott < 0)
         leosztott = 0;
 
-      if (leosztott != hunterPos)
+      if (leosztott != hunterPos) // ha frissíteni kell a vadász pozíciót
         {
           for (uint8_t p = 0; p < SEGMENT_LCD_NUM_OF_LOWER_CHARS; p++)
             {
